@@ -4,7 +4,6 @@
   border: 1px solid black;
   position: fixed;
   background-color: var(--darkest);
-  transition: width 0.2s ease;
 }
 .nav-item{
   width: 100%;

@@ -1,0 +1,36 @@
+.container {
+  width: calc(80% - 1rem);
+  height: auto;
+  margin: 1rem auto;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  background-color: #191919;
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: var(--white);
+}
+
+.movie-image {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  display: block;
+  margin: 0 auto;
+}
+
+.movie-title {
+  flex-grow: 1;
+  margin-top: 10px;
+  font-size: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie-genres {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #666;
+}
