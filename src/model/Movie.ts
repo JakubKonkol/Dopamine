@@ -52,6 +52,9 @@ export class Movie{
     this._video = video;
     this._vote_average = vote_average;
     this._vote_count = vote_count;
+
+    this.backdrop_path = "https://image.tmdb.org/t/p/w500" + this.backdrop_path;
+    this.poster_path = "https://image.tmdb.org/t/p/w500" + this.poster_path;
   }
 
   get adult(): boolean {

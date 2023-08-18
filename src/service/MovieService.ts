@@ -52,6 +52,26 @@ export class MovieService{
       throw error;
     }
   }
+  getTopRatedMovies(): Movie[]{
+    let movies: Movie[] = [];
+    tmdb.get('/movie/top_rated').then(async (response) => {
+      for (let item in response.data.results) {
+        movies.push(await this.getMovieById(response.data.results[item].id))
+      }
+    })
+    return movies;
+  }
+  getUpcomingMovies(): Movie[]{
+    let movies: Movie[] = [];
+    tmdb.get('/movie/upcoming').then(async (response) => {
+      for (let item in response.data.results) {
+        movies.push(await this.getMovieById(response.data.results[item].id))
+      }
+    }).catch((error) => {
+      console.log(error);
+    })
+    return movies;
+  }
   searchMovie(query: string): Movie[]{
     let movies: Movie[] = [];
     tmdb.get('/search/movie', {
