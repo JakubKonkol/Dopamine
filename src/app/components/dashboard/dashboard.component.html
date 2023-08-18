@@ -20,6 +20,7 @@
       <app-movie-view
         *ngFor="let movie of popularMovies"
         [movie]="movie"
+        (click)="gotoMovie(movie.id)"
       />
     </div>
   </div>

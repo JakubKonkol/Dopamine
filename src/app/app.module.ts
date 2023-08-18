@@ -9,6 +9,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { MovieViewComponent } from './components/movie-view/movie-view.component';
 import {FormsModule} from "@angular/forms";
+import { MoviePageComponent } from './components/movie-page/movie-page.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {FormsModule} from "@angular/forms";
     NavbarComponent,
     DashboardComponent,
     ProfileComponent,
-    MovieViewComponent
+    MovieViewComponent,
+    MoviePageComponent
   ],
     imports: [
         BrowserModule,
