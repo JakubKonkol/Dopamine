@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import tmdb from "../api/tmdb";
 import {MovieService} from "../service/MovieService";
 import {Movie} from "../model/Movie";
 

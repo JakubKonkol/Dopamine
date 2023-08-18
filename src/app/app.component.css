@@ -1,0 +1,9 @@
+.content{
+  margin-left: 5rem;
+  padding: 1rem;
+}
+@media only screen and (max-width: 780px) {
+  .content{
+    margin-left: 0;
+  }
+}

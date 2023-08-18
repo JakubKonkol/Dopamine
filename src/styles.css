@@ -6,3 +6,7 @@
   --white: #F4FEFD;
   --main-font: 'Roboto', sans-serif;
 }
+*{
+  margin: 0;
+  font-family: var(--main-font);
+}
