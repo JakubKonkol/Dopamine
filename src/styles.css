@@ -10,3 +10,6 @@
   margin: 0;
   font-family: var(--main-font);
 }
+body{
+  background-color: var(--dark);
+}

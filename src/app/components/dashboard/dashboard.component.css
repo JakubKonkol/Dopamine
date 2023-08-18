@@ -1,0 +1,10 @@
+.container{
+  padding: 1rem;
+}
+.welcome-txt-p{
+  font-size: 2.5rem;
+  font-family: var(--main-font);
+}
+.welcome-txt-p b{
+  color: cyan;
+}
