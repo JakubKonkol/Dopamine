@@ -23,6 +23,6 @@ export class DashboardComponent implements OnInit{
 
 
   gotoMovie(id: number) {
-    // this.router.navigate(['movie', id]).then();
+    this.router.navigate(['movie', id]).then();
   }
 }

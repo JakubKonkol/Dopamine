@@ -14,16 +14,9 @@ export class MoviePageComponent implements OnInit{
   constructor(private route: ActivatedRoute, private movieService: MovieService){}
 
   async ngOnInit(): Promise<void> {
-    this.route.paramMap.subscribe(params => {
-      this.movieId = Number(params.get('movie_id'));
-    })
-
-    if (this.movieId) {
-      this.movie = await this.movieService.getMovieById(Number(this.movieId)).catch(err => {
-        console.log(err);
-        return {} as Movie;
-      });
-    }
+    this.movieId = this.route.snapshot.params['id'];
+    console.log(this.movieId);
+    this.movie = await this.movieService.getMovieById(this.movieId);
   }
 
 }
