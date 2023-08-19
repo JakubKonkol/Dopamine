@@ -12,6 +12,9 @@ import {FormsModule} from "@angular/forms";
 import { MoviePageComponent } from './components/movie-page/movie-page.component';
 import { DashboardSectionComponent } from './components/dashboard-section/dashboard-section.component';
 import {NgOptimizedImage} from "@angular/common";
+import {AuthService} from "../service/AuthService";
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,9 @@ import {NgOptimizedImage} from "@angular/common";
     ProfileComponent,
     MovieViewComponent,
     MoviePageComponent,
-    DashboardSectionComponent
+    DashboardSectionComponent,
+    RegisterComponent,
+    LoginComponent
   ],
     imports: [
         BrowserModule,
@@ -30,7 +35,8 @@ import {NgOptimizedImage} from "@angular/common";
         NgOptimizedImage
     ],
   providers: [
-    MovieService
+    MovieService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
