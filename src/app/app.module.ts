@@ -11,6 +11,7 @@ import { MovieViewComponent } from './components/movie-view/movie-view.component
 import {FormsModule} from "@angular/forms";
 import { MoviePageComponent } from './components/movie-page/movie-page.component';
 import { DashboardSectionComponent } from './components/dashboard-section/dashboard-section.component';
+import {NgOptimizedImage} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { DashboardSectionComponent } from './components/dashboard-section/dashbo
     imports: [
         BrowserModule,
         AppRoutingModule,
-        FormsModule
+        FormsModule,
+        NgOptimizedImage
     ],
   providers: [
     MovieService

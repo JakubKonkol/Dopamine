@@ -5,10 +5,12 @@
   --light: #0EF6CC;
   --white: #F4FEFD;
   --main-font: 'Roboto', sans-serif;
+  --secondary-font: 'Montserrat', sans-serif;
+  --other-font: 'Poppins', sans-serif;
 }
 *{
   margin: 0;
-  font-family: var(--main-font);
+  font-family: var(--other-font);
 }
 body{
   background-color: var(--dark);

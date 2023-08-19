@@ -11,12 +11,20 @@ import {MovieService} from "../../../service/MovieService";
 export class MoviePageComponent implements OnInit{
   movieId!: number;
   movie!: Movie;
+  similarMovies!: Movie[];
   constructor(private route: ActivatedRoute, private movieService: MovieService){}
 
   async ngOnInit(): Promise<void> {
     this.movieId = this.route.snapshot.params['id'];
-    console.log(this.movieId);
     this.movie = await this.movieService.getMovieById(this.movieId);
+    this.similarMovies = this.movieService.getSimilarMovies(this.movieId);
+  }
+  filterDate(date: string): string{
+    return date.split('-')[0];
+  }
+  roundRating(rating: number): number{
+    return Math.round(rating * 10) / 10;
+
   }
 
 }

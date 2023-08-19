@@ -85,6 +85,14 @@ export class MovieService{
     })
     return movies;
   }
-
+  getSimilarMovies(id: number): Movie[]{
+    let movies: Movie[] = [];
+    tmdb.get('/movie/' + id + '/similar').then(async (response) => {
+      for (let item in response.data.results) {
+        movies.push(await this.getMovieById(response.data.results[item].id))
+      }
+    })
+    return movies;
+  }
 
 }

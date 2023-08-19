@@ -7,8 +7,9 @@
 .welcome-txt-p{
   font-size: 2.5rem;
   font-weight: bolder;
-  letter-spacing: 0.3rch;
+  letter-spacing: 2px;
   font-family: var(--main-font);
+  line-height: 56px;
 }
 .welcome-txt-p b{
   color: cyan;
@@ -20,7 +21,6 @@
   justify-content: space-between;
 }
 .subtitle{
-  margin-left: 0.5rem;
   filter: grayscale(100%) opacity(0.5);
 }
 .search-box{
