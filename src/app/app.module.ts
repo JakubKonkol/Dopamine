@@ -15,6 +15,7 @@ import {NgOptimizedImage} from "@angular/common";
 import {AuthService} from "../service/AuthService";
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import {AngularFireModule} from "@angular/fire/compat";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,16 @@ import { LoginComponent } from './components/login/login.component';
         BrowserModule,
         AppRoutingModule,
         FormsModule,
-        NgOptimizedImage
+        NgOptimizedImage,
+        AngularFireModule.initializeApp({
+          apiKey: "AIzaSyDcSaWWnhMhIgJ-0Zwa892JYgn7v-VVLrw",
+          authDomain: "escapix-c04ab.firebaseapp.com",
+          projectId: "escapix-c04ab",
+          storageBucket: "escapix-c04ab.appspot.com",
+          messagingSenderId: "341486087810",
+          appId: "1:341486087810:web:df5c61ba114e30f5ef0e9b",
+          measurementId: "G-EES6HLWYZH"
+        })
     ],
   providers: [
     MovieService,
