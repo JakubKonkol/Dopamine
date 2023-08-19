@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../../service/AuthService";
 import {Router} from "@angular/router";
+import {FirebaseService} from "../../../service/FirebaseService";
 
 @Component({
   selector: 'app-profile',
@@ -8,7 +9,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit{
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private authService: AuthService, private router: Router, private firebaseService: FirebaseService) {
   }
 
   ngOnInit(): void {
@@ -18,5 +19,11 @@ export class ProfileComponent implements OnInit{
 
 
   }
+  onLogOut(){
+    this.firebaseService.logOut();
+    this.authService.isLoggedIn = false;
+    this.router.navigate(['/login']).then();
+  }
+
 
 }

@@ -1,4 +1,5 @@
 import {Injectable} from "@angular/core";
+import {User} from "../model/User";
 
 @Injectable(
   {
@@ -8,7 +9,11 @@ import {Injectable} from "@angular/core";
 export class AuthService{
   isLoggedIn: boolean = false;
 
-  createUser(username: string, email: string, password: string) {
+  createUser(){
+    this.isLoggedIn = true;
+    let user = new User();
+
 
   }
+
 }
