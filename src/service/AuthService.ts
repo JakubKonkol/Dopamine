@@ -8,4 +8,7 @@ import {Injectable} from "@angular/core";
 export class AuthService{
   isLoggedIn: boolean = false;
 
+  createUser(username: string, email: string, password: string) {
+
+  }
 }
