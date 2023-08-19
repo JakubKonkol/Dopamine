@@ -16,6 +16,7 @@ import {AuthService} from "../service/AuthService";
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import {AngularFireModule} from "@angular/fire/compat";
+import {environment} from "../env/env";
 
 @NgModule({
   declarations: [
@@ -35,13 +36,13 @@ import {AngularFireModule} from "@angular/fire/compat";
         FormsModule,
         NgOptimizedImage,
         AngularFireModule.initializeApp({
-          apiKey: "AIzaSyDcSaWWnhMhIgJ-0Zwa892JYgn7v-VVLrw",
-          authDomain: "escapix-c04ab.firebaseapp.com",
-          projectId: "escapix-c04ab",
-          storageBucket: "escapix-c04ab.appspot.com",
-          messagingSenderId: "341486087810",
-          appId: "1:341486087810:web:df5c61ba114e30f5ef0e9b",
-          measurementId: "G-EES6HLWYZH"
+          apiKey: environment.f_api_key,
+          authDomain: environment.f_auth_domain,
+          projectId: environment.f_project_id,
+          storageBucket: environment.f_storage_bucket,
+          messagingSenderId: environment.f_messaging_sender_id,
+          appId:  environment.f_app_id,
+          measurementId: environment.f_measurement_id
         })
     ],
   providers: [
