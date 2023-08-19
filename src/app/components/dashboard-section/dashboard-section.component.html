@@ -1,0 +1,10 @@
+<div class="section">
+  <h1 class="section-title">{{title}}</h1>
+  <div class="movie-container">
+    <app-movie-view
+      *ngFor="let movie of iterableMovies"
+      [movie]="movie"
+      (click)="gotoMovie(movie.id)"
+    />
+  </div>
+</div>

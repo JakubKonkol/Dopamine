@@ -14,32 +14,10 @@
 
 
   </div>
-  <div class="section">
-    <h1 class="section-title">Trending movies! </h1>
-    <div class="movie-container">
-      <app-movie-view
-        *ngFor="let movie of popularMovies"
-        [movie]="movie"
-        (click)="gotoMovie(movie.id)"
-      />
-    </div>
-  </div>
-<!--  <div class="section">-->
-<!--    <h1 class="section-title"> Top rated movies! </h1>-->
-<!--    <div class="movie-container">-->
-<!--      <app-movie-view-->
-<!--        *ngFor="let movie of topRatedMovies"-->
-<!--        [movie]="movie"-->
-<!--      />-->
-<!--  </div>-->
-<!--  </div>-->
-<!--  <div class="section">-->
-<!--    <h1 class="section-title"> Upcoming! </h1>-->
-<!--    <div class="movie-container">-->
-<!--      <app-movie-view-->
-<!--        *ngFor="let movie of upcomingMovies"-->
-<!--        [movie]="movie"-->
-<!--      />-->
-<!--    </div>-->
-<!--  </div>-->
+
+  <app-dashboard-section
+    title="Trending movies!"
+    [iterableMovies]="popularMovies"
+  />
+
 </div>
