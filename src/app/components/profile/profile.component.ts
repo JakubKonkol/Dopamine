@@ -13,17 +13,21 @@ export class ProfileComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    if(!this.authService.isLoggedIn){
-      this.router.navigate(['/login']).then();
-    }
+    this.firebaseService.IsLoggedIn$().subscribe((isLoggedIn) => {
+      if (!isLoggedIn) {
+        this.router.navigate(['/login']).then();
+      }
+    })
 
 
   }
   onLogOut(){
-    this.firebaseService.logOut();
-    this.authService.isLoggedIn = false;
+    this.firebaseService.logout();
     this.router.navigate(['/login']).then();
   }
 
 
+  getUID() {
+    return this.firebaseService.getCurrentUserUID();
+  }
 }

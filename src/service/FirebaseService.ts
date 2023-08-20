@@ -1,6 +1,13 @@
-import {Injectable} from "@angular/core";
-import {AngularFireAuth} from "@angular/fire/compat/auth";
-import {AuthService} from "./AuthService";
+import { Injectable } from '@angular/core';
+import {
+  Auth,
+  signInWithEmailAndPassword,
+  authState,
+  createUserWithEmailAndPassword,
+  UserCredential,
+} from '@angular/fire/auth';
+import { from, Observable, tap} from 'rxjs';
+
 
 
 @Injectable({
@@ -8,35 +15,38 @@ import {AuthService} from "./AuthService";
 })
 
 export class FirebaseService{
-  isLoggedIn: boolean = false;
-  constructor(public firebaseAuth: AngularFireAuth, private authService: AuthService) {
+  currentUser$ = authState(this.auth)
+  constructor( private auth: Auth) {
 
   }
-  async signIn(email: string, password: string){
-    await this.firebaseAuth.signInWithEmailAndPassword(email, password)
-      .then(res => {
-        this.isLoggedIn = true;
-        localStorage.setItem('user', JSON.stringify(res.user));
-      });
-      this.initializeUser();
-  }
-  async signUp(email: string, password: string, username: string){
-    await this.firebaseAuth.createUserWithEmailAndPassword(email, password)
-      .then(res => {
-        this.isLoggedIn = true;
-        localStorage.setItem('user', JSON.stringify(res.user));
+  signUp(email: string, password: string): Observable<UserCredential> {
+    return from(createUserWithEmailAndPassword(this.auth, email, password)).pipe(
+      tap((userCredential) => {
+        let uid = userCredential.user?.uid;
+        localStorage.setItem('user_uid', uid);
       })
-    this.initializeUser();
+    );
   }
-  logOut(){
-    this.firebaseAuth.signOut()
-      .then(res => {
-        this.isLoggedIn = false;
-        localStorage.removeItem('user');
-      });
-  }
-  initializeUser(){
 
+  login(email: string, password: string): Observable<any> {
+    return from(signInWithEmailAndPassword(this.auth, email, password)).pipe(
+      tap((userCredential) => {
+        let uid = userCredential.user?.uid;
+        localStorage.setItem('user_uid', uid);
+      })
+    );
+  }
+  logout(): Observable<any>{
+    return from(this.auth.signOut());
+  }
+  getCurrentUserUID(): string{
+    if(this.auth.currentUser == null) return 'undefined';
+    return this.auth.currentUser.uid;
+  }
+
+  IsLoggedIn$(): Observable<boolean>{
+    if(this.auth.currentUser == null) return new Observable<boolean>(observer => {  observer.next(false);});
+    return new Observable<boolean>(observer => {  observer.next(true);});
   }
 
 }

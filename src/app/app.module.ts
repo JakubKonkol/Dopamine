@@ -15,9 +15,14 @@ import {NgOptimizedImage} from "@angular/common";
 import {AuthService} from "../service/AuthService";
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
-import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../env/env";
 import {FirebaseService} from "../service/FirebaseService";
+import {getFirestore, provideFirestore} from "@angular/fire/firestore";
+import {getAuth, provideAuth} from "@angular/fire/auth";
+import {provideFirebaseApp} from "@angular/fire/app";
+import firebase from "firebase/compat/app";
+import initializeApp = firebase.initializeApp;
+import {getStorage, provideStorage} from "@angular/fire/storage";
 import {HotToastModule} from "@ngneat/hot-toast";
 
 @NgModule({
@@ -37,7 +42,10 @@ import {HotToastModule} from "@ngneat/hot-toast";
         AppRoutingModule,
         FormsModule,
         NgOptimizedImage,
-        AngularFireModule.initializeApp(environment.firebase),
+        provideFirebaseApp(() => initializeApp(environment.firebase)),
+        provideFirestore(() => getFirestore()),
+        provideAuth(() => getAuth()),
+        provideStorage(() => getStorage()),
         HotToastModule.forRoot()
     ],
   providers: [
