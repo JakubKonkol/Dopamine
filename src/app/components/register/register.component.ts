@@ -3,6 +3,8 @@ import {AuthService} from "../../../service/AuthService";
 import {Validators} from "../../../tools/Validators";
 import {FirebaseService} from "../../../service/FirebaseService";
 import {Router} from "@angular/router";
+import {toastConfig} from "../../../tools/toastConfig";
+import {HotToastService} from "@ngneat/hot-toast";
 
 @Component({
   selector: 'app-register',
@@ -15,7 +17,7 @@ export class RegisterComponent implements OnInit{
   password: string = '';
   password2: string = '';
 
-  constructor( private firebaseService: FirebaseService, private router: Router, private authService: AuthService){
+  constructor( private firebaseService: FirebaseService, private router: Router, private toast: HotToastService){
 
   }
 
@@ -25,7 +27,11 @@ export class RegisterComponent implements OnInit{
     if(!Validators.validateUsername(this.username)) throw new Error('Username must be at least 4 characters long');
     if(!Validators.validateEmail(this.email)) throw new Error('Email must be valid');
     this.firebaseService.signUp(this.email, this.password);
-    this.router.navigate(['/profile']).then();
+
+    this.toast.loading('Registered! Redirecting', toastConfig)
+    setTimeout(() => {
+      this.router.navigate(['profile']).then();
+    }, 1500);
   }
   ngOnInit(): void {
     this.firebaseService.IsLoggedIn$().subscribe((isLoggedIn) => {

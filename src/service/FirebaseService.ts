@@ -2,20 +2,16 @@ import { Injectable } from '@angular/core';
 import {
   Auth,
   signInWithEmailAndPassword,
-  authState,
   createUserWithEmailAndPassword,
   UserCredential,
 } from '@angular/fire/auth';
 import { from, Observable, tap} from 'rxjs';
-
-
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class FirebaseService{
-  currentUser$ = authState(this.auth)
   constructor( private auth: Auth) {
 
   }
