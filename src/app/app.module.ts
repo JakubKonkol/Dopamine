@@ -23,6 +23,7 @@ import {provideFirebaseApp} from "@angular/fire/app";
 import firebase from "firebase/compat/app";
 import initializeApp = firebase.initializeApp;
 import {getStorage, provideStorage} from "@angular/fire/storage";
+import {HotToastModule} from "@ngneat/hot-toast";
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import {getStorage, provideStorage} from "@angular/fire/storage";
         provideFirestore(() => getFirestore()),
         provideAuth(() => getAuth()),
         provideStorage(() => getStorage()),
+        HotToastModule.forRoot()
     ],
   providers: [
     MovieService,
