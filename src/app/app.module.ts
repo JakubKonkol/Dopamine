@@ -37,16 +37,8 @@ import {FirebaseService} from "../service/FirebaseService";
         AppRoutingModule,
         FormsModule,
         NgOptimizedImage,
-        AngularFireModule.initializeApp({
-          apiKey: environment.f_api_key,
-          authDomain: environment.f_auth_domain,
-          projectId: environment.f_project_id,
-          storageBucket: environment.f_storage_bucket,
-          messagingSenderId: environment.f_messaging_sender_id,
-          appId:  environment.f_app_id,
-          measurementId: environment.f_measurement_id
-        }),
-      AngularFireStorageModule
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFireStorageModule
     ],
   providers: [
     MovieService,
