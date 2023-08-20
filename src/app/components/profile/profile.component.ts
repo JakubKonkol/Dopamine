@@ -20,7 +20,7 @@ export class ProfileComponent implements OnInit{
 
   }
   onLogOut(){
-    this.firebaseService.logOut();
+    this.firebaseService.logout();
     this.authService.isLoggedIn = false;
     this.router.navigate(['/login']).then();
   }

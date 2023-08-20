@@ -1,5 +1,5 @@
 export class User{
-  private _id: string;
+  private _uid: string;
   private _username: string;
   private _email: string;
   private _password: string;
@@ -10,7 +10,7 @@ export class User{
 
 
   constructor() {
-    this._id = "undefined";
+    this._uid = "undefined";
     this._username = '';
     this._email = '';
     this._password = '';
@@ -20,12 +20,12 @@ export class User{
   }
 
 
-  get id(): string {
-    return this._id;
+  get uid(): string {
+    return this._uid;
   }
 
-  set id(value: string) {
-    this._id = value;
+  set uid(value: string) {
+    this._uid = value;
   }
 
   get username(): string {

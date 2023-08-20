@@ -1,7 +1,13 @@
-import {Injectable} from "@angular/core";
-import {AngularFireAuth} from "@angular/fire/compat/auth";
-import {AuthService} from "./AuthService";
-import {getFirestore} from "@angular/fire/firestore";
+import { Injectable } from '@angular/core';
+import {
+  Auth,
+  signInWithEmailAndPassword,
+  authState,
+  createUserWithEmailAndPassword,
+  UserCredential,
+} from '@angular/fire/auth';
+import { concatMap, from, Observable, of, switchMap } from 'rxjs';
+
 
 
 @Injectable({
@@ -9,36 +15,19 @@ import {getFirestore} from "@angular/fire/firestore";
 })
 
 export class FirebaseService{
-  isLoggedIn: boolean = false;
-  db = getFirestore();
-  constructor(public firebaseAuth: AngularFireAuth, private authService: AuthService) {
+  currentUser$ = authState(this.auth)
+  constructor( private auth: Auth) {
 
   }
-  async signIn(email: string, password: string){
-    await this.firebaseAuth.signInWithEmailAndPassword(email, password)
-      .then(res => {
-        this.isLoggedIn = true;
-        localStorage.setItem('user', JSON.stringify(res.user));
-      });
-      this.initializeUser();
+  signUp(email: string, password: string): Observable<UserCredential> {
+    return from(createUserWithEmailAndPassword(this.auth, email, password));
   }
-  async signUp(email: string, password: string, username: string){
-    await this.firebaseAuth.createUserWithEmailAndPassword(email, password)
-      .then(res => {
-        this.isLoggedIn = true;
-        localStorage.setItem('user', JSON.stringify(res.user));
-      })
-    this.initializeUser();
-  }
-  logOut(){
-    this.firebaseAuth.signOut()
-      .then(res => {
-        this.isLoggedIn = false;
-        localStorage.removeItem('user');
-      });
-  }
-  initializeUser(){
 
+  login(email: string, password: string): Observable<any> {
+    return from(signInWithEmailAndPassword(this.auth, email, password));
+  }
+  logout(): Observable<any>{
+    return from(this.auth.signOut());
   }
 
 }

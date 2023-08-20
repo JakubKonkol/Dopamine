@@ -15,10 +15,14 @@ import {NgOptimizedImage} from "@angular/common";
 import {AuthService} from "../service/AuthService";
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
-import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../env/env";
-import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {FirebaseService} from "../service/FirebaseService";
+import {getFirestore, provideFirestore} from "@angular/fire/firestore";
+import {getAuth, provideAuth} from "@angular/fire/auth";
+import {provideFirebaseApp} from "@angular/fire/app";
+import firebase from "firebase/compat/app";
+import initializeApp = firebase.initializeApp;
+import {getStorage, provideStorage} from "@angular/fire/storage";
 
 @NgModule({
   declarations: [
@@ -37,16 +41,10 @@ import {FirebaseService} from "../service/FirebaseService";
         AppRoutingModule,
         FormsModule,
         NgOptimizedImage,
-        AngularFireModule.initializeApp({
-          apiKey: environment.f_api_key,
-          authDomain: environment.f_auth_domain,
-          projectId: environment.f_project_id,
-          storageBucket: environment.f_storage_bucket,
-          messagingSenderId: environment.f_messaging_sender_id,
-          appId:  environment.f_app_id,
-          measurementId: environment.f_measurement_id
-        }),
-      AngularFireStorageModule
+        provideFirebaseApp(() => initializeApp(environment.firebase)),
+        provideFirestore(() => getFirestore()),
+        provideAuth(() => getAuth()),
+        provideStorage(() => getStorage()),
     ],
   providers: [
     MovieService,

@@ -3,11 +3,10 @@ import {AuthService} from "../../../service/AuthService";
 import {Validators} from "../../../tools/Validators";
 import {FirebaseService} from "../../../service/FirebaseService";
 import {Router} from "@angular/router";
-import {error} from "@angular/compiler-cli/src/transformers/util";
+import {switchMap} from "rxjs";
+import {UserService} from "../../../service/UserService";
 import firebase from "firebase/compat";
-import initializeApp = firebase.initializeApp;
-import {environment} from "../../../env/env";
-import {getFirestore} from "@angular/fire/firestore";
+import {User} from "../../../model/User";
 
 @Component({
   selector: 'app-register',
@@ -20,7 +19,7 @@ export class RegisterComponent implements OnInit{
   password: string = '';
   password2: string = '';
 
-  constructor(private authService: AuthService, private firebaseService: FirebaseService, private router: Router){
+  constructor( private firebaseService: FirebaseService, private router: Router, private userService: UserService){
 
   }
 
@@ -30,15 +29,23 @@ export class RegisterComponent implements OnInit{
     if(!Validators.validateUsername(this.username)) throw new Error('Username must be at least 4 characters long');
     if(!Validators.validateEmail(this.email)) throw new Error('Email must be valid');
 
-    this.firebaseService.signUp(this.email, this.password, this.username).then(r =>
-      console.log("User created")
+    this.firebaseService.signUp(this.email, this.password).pipe(
+      switchMap(({ user: { uid } }) =>
+        this.userService.addUser(this.createNewUser())
+      ),
     );
 
-    this.router.navigate(['profile']).then();
   }
 
   ngOnInit(): void {
 
+  }
+  createNewUser(){
+    let usr = new User()
+    usr.username = this.username;
+    usr.email = this.email;
+    usr.password = this.password;
+    return usr;
   }
 
 }
