@@ -30,11 +30,6 @@ export class RegisterComponent implements OnInit{
     if(!Validators.validateUsername(this.username)) throw new Error('Username must be at least 4 characters long');
     if(!Validators.validateEmail(this.email)) throw new Error('Email must be valid');
 
-    this.firebaseService.signUp(this.email, this.password, this.username).then(r =>
-      console.log("User created")
-    );
-
-    this.router.navigate(['profile']).then();
   }
 
   ngOnInit(): void {
