@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {Movie} from "../../../model/Movie";
 import {MovieService} from "../../../service/MovieService";
+import {HotToastService} from "@ngneat/hot-toast";
 
 @Component({
   selector: 'app-movie-page',
@@ -12,7 +13,7 @@ export class MoviePageComponent implements OnInit{
   movieId!: number;
   movie!: Movie;
   similarMovies!: Movie[];
-  constructor(private route: ActivatedRoute, private movieService: MovieService){}
+  constructor(private route: ActivatedRoute, private movieService: MovieService, private toast: HotToastService){}
 
   async ngOnInit(): Promise<void> {
     this.movieId = this.route.snapshot.params['id'];
@@ -27,4 +28,8 @@ export class MoviePageComponent implements OnInit{
 
   }
 
+  test() {
+    this.toast.success('Hello World!');
+    console.log('test')
+  }
 }

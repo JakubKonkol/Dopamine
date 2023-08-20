@@ -1,7 +1,6 @@
 import {Injectable} from "@angular/core";
 import {AngularFireAuth} from "@angular/fire/compat/auth";
 import {AuthService} from "./AuthService";
-import {getFirestore} from "@angular/fire/firestore";
 
 
 @Injectable({
@@ -10,7 +9,6 @@ import {getFirestore} from "@angular/fire/firestore";
 
 export class FirebaseService{
   isLoggedIn: boolean = false;
-  db = getFirestore();
   constructor(public firebaseAuth: AngularFireAuth, private authService: AuthService) {
 
   }

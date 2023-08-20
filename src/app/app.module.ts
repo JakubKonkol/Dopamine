@@ -17,8 +17,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../env/env";
-import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {FirebaseService} from "../service/FirebaseService";
+import {HotToastModule} from "@ngneat/hot-toast";
 
 @NgModule({
   declarations: [
@@ -38,7 +38,7 @@ import {FirebaseService} from "../service/FirebaseService";
         FormsModule,
         NgOptimizedImage,
         AngularFireModule.initializeApp(environment.firebase),
-        AngularFireStorageModule
+        HotToastModule.forRoot()
     ],
   providers: [
     MovieService,
