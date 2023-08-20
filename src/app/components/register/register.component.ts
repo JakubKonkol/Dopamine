@@ -4,6 +4,10 @@ import {Validators} from "../../../tools/Validators";
 import {FirebaseService} from "../../../service/FirebaseService";
 import {Router} from "@angular/router";
 import {error} from "@angular/compiler-cli/src/transformers/util";
+import firebase from "firebase/compat";
+import initializeApp = firebase.initializeApp;
+import {environment} from "../../../env/env";
+import {getFirestore} from "@angular/fire/firestore";
 
 @Component({
   selector: 'app-register',
@@ -25,12 +29,11 @@ export class RegisterComponent implements OnInit{
     if(!Validators.validatePassword(this.password)) throw new Error('Password must be at least 6 characters long');
     if(!Validators.validateUsername(this.username)) throw new Error('Username must be at least 4 characters long');
     if(!Validators.validateEmail(this.email)) throw new Error('Email must be valid');
-    console.log('Creating user: ', this.username, this.email, this.password);
 
-    this.firebaseService.signUp(this.email, this.password).then(r =>
+    this.firebaseService.signUp(this.email, this.password, this.username).then(r =>
       console.log("User created")
     );
-    this.authService.createUser();
+
     this.router.navigate(['profile']).then();
   }
 

@@ -12,15 +12,17 @@ import {AuthService} from "../../../service/AuthService";
 export class LoginComponent {
   username: string = '';
   password: string = '';
+  alertMessage: string = '';
 
   constructor(private authService: AuthService, private firebaseService: FirebaseService, private router: Router) { }
   onSingIn(){
     if(!Validators.validateUsername(this.username)) throw new Error('Username must be at least 4 characters long');
     if(!Validators.validatePassword(this.password)) throw new Error('Password must be at least 6 characters long');
     this.firebaseService.signIn(this.username, this.password).then(r =>
-      console.log("User logged in"))
+      console.log("User logged in")).catch(error => alert(error)
+     );
 
-    this.authService.createUser();
+
     this.router.navigate(['profile']).then();
 
   }

@@ -17,6 +17,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../env/env";
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import {FirebaseService} from "../service/FirebaseService";
 
 @NgModule({
   declarations: [
@@ -43,11 +45,13 @@ import {environment} from "../env/env";
           messagingSenderId: environment.f_messaging_sender_id,
           appId:  environment.f_app_id,
           measurementId: environment.f_measurement_id
-        })
+        }),
+      AngularFireStorageModule
     ],
   providers: [
     MovieService,
-    AuthService
+    AuthService,
+    FirebaseService
   ],
   bootstrap: [AppComponent]
 })
