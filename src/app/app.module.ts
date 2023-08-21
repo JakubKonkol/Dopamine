@@ -24,6 +24,8 @@ import firebase from "firebase/compat/app";
 import initializeApp = firebase.initializeApp;
 import {getStorage, provideStorage} from "@angular/fire/storage";
 import {HotToastModule} from "@ngneat/hot-toast";
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { SearchPageComponent } from './components/search-page/search-page.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import {HotToastModule} from "@ngneat/hot-toast";
     MoviePageComponent,
     DashboardSectionComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    SearchBarComponent,
+    SearchPageComponent
   ],
     imports: [
         BrowserModule,

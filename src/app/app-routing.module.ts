@@ -5,6 +5,7 @@ import {ProfileComponent} from "./components/profile/profile.component";
 import {MoviePageComponent} from "./components/movie-page/movie-page.component";
 import {LoginComponent} from "./components/login/login.component";
 import {RegisterComponent} from "./components/register/register.component";
+import {SearchPageComponent} from "./components/search-page/search-page.component";
 
 
 const routes: Routes = [
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: "profile", component: ProfileComponent },
   { path: "movie/:id", component: MoviePageComponent },
   { path: "login", component: LoginComponent},
-  { path: "register", component: RegisterComponent }
+  { path: "register", component: RegisterComponent },
+  {path: "search/:query", component: SearchPageComponent}
 ];
 
 @NgModule({

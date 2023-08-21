@@ -1,0 +1,6 @@
+<div *ngIf="shouldRenderData">
+  <app-movie-view
+    *ngFor="let movie of foundMovies"
+    [movie]="movie"
+    />
+</div>

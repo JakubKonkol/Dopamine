@@ -76,7 +76,10 @@ export class MovieService{
     let movies: Movie[] = [];
     tmdb.get('/search/movie', {
       params: {
-        query: query
+        query: query,
+        include_adult: false,
+        language: 'en-US',
+        page: 1
       }
     }).then(async (response) => {
       for (let item in response.data.results) {
