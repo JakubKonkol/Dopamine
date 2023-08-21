@@ -1,6 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {MovieService} from "../service/MovieService";
-import {Movie} from "../model/Movie";
 
 @Component({
   selector: 'app-root',
