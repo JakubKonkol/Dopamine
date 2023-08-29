@@ -1,6 +1,11 @@
 <div *ngIf="shouldRenderData">
-  <app-movie-view
-    *ngFor="let movie of foundMovies"
-    [movie]="movie"
+  <p class="text"> Here's what we have found for phrase: {{query}}</p>
+  <div class="movies">
+    <app-movie-view
+            *ngFor="let movie of foundMovies"
+            [movie]="movie"
+            (click)="gotoMovie(movie.id)"
     />
+  </div>
+
 </div>

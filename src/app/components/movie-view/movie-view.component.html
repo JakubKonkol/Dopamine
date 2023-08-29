@@ -1,5 +1,5 @@
 <div class="container">
   <img class="movie-image" src="{{movie.poster_path}}">
   <h1 class="movie-title">{{movie.title}}</h1>
-  <h3 class="movie-genres">{{movie.genres[0].name}}</h3>
+  <h3 class="movie-genres" *ngIf="movie.genres.length > 0">{{movie.genres[0].name}}</h3>
 </div>

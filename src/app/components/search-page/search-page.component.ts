@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {MovieService} from "../../../service/MovieService";
 import {Movie} from "../../../model/Movie";
 import {HotToastService} from "@ngneat/hot-toast";
@@ -12,18 +12,19 @@ import {toastConfig} from "../../../tools/toastConfig";
 })
 export class SearchPageComponent implements OnInit{
 
-  constructor(private route: ActivatedRoute, private movieService: MovieService, private toast: HotToastService){ }
+  constructor(private route: ActivatedRoute, private movieService: MovieService, private toast: HotToastService, private router: Router){ }
   foundMovies: Movie[] = []
-  shouldRenderData: boolean = false;
+  shouldRenderData: boolean = true;
+  query: string = "";
   async ngOnInit(): Promise<void> {
-      this.toast.loading('Searching for movies...', toastConfig)
-      let query = this.route.snapshot.params['id'];
-      this.foundMovies = this.movieService.searchMovie(query);
-      setTimeout(() => {
-        this.shouldRenderData = true;
-      }, 1000)
+      this.query = this.route.snapshot.params['query'];
+      this.foundMovies = this.movieService.searchMovie(this.query);
       console.log(this.foundMovies)
+      console.log(this.query)
 
   }
 
+    gotoMovie(id: number) {
+        this.router.navigate(['/movie', id]).then();
+    }
 }

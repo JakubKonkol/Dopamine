@@ -77,9 +77,9 @@ export class MovieService{
     tmdb.get('/search/movie', {
       params: {
         query: query,
-        // include_adult: false,
-        // language: 'en-US',
-        // page: 1
+        include_adult: false,
+        language: 'en-US',
+        page: 2
       }
     }).then(async (response) => {
       for (let item in response.data.results) {

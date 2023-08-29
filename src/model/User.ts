@@ -1,4 +1,5 @@
 export class User{
+  private _id: number;
   private _uid: string;
   private _username: string;
   private _email: string;
@@ -9,7 +10,16 @@ export class User{
   private _watchHours: number;
 
 
+  get id(): number {
+    return this._id;
+  }
+
+  set id(value: number) {
+    this._id = value;
+  }
+
   constructor() {
+    this._id = -1;
     this._uid = "undefined";
     this._username = '';
     this._email = '';
