@@ -17,6 +17,8 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { SearchPageComponent } from './components/search-page/search-page.component';
 import {UserService} from "../service/UserService";
 import { MovieCarouselComponent } from './components/movie-carousel/movie-carousel.component';
+import {PersonService} from "../service/PersonService";
+import { PersonsViewComponent } from './components/persons-view/persons-view.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { MovieCarouselComponent } from './components/movie-carousel/movie-carous
     DashboardSectionComponent,
     SearchBarComponent,
     SearchPageComponent,
-    MovieCarouselComponent
+    MovieCarouselComponent,
+    PersonsViewComponent
   ],
     imports: [
         BrowserModule,
@@ -39,8 +42,9 @@ import { MovieCarouselComponent } from './components/movie-carousel/movie-carous
         HotToastModule.forRoot()
     ],
   providers: [
-    MovieService,
-    UserService
+      MovieService,
+      UserService,
+      PersonService
   ],
   bootstrap: [AppComponent]
 })

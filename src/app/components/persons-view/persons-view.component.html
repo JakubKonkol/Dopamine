@@ -1,0 +1,8 @@
+<div class="container" *ngIf="iterablePersons">
+    <div class="person-container">
+        <div class="person" *ngFor="let person of iterablePersons">
+            <img src="{{person.profile_path}}" alt="person image" class="person-image">
+            <div class="person-name">{{person.name}}</div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+.container{
+    border: 1px solid red;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.person-container{
+    display: flex;
+}
+.person-image{
+    width: 150px;
+    height: 200px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
