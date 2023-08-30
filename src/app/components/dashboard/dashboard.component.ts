@@ -17,8 +17,8 @@ export class DashboardComponent implements OnInit{
   }
   ngOnInit(): void {
     this.popularMovies = this.movieService.getPopularMovies();
-    // this.topRatedMovies = this.movieService.getTopRatedMovies();
-    // this.upcomingMovies = this.movieService.getUpcomingMovies();
+    this.topRatedMovies = this.movieService.getTopRatedMovies();
+    this.upcomingMovies = this.movieService.getUpcomingMovies();
   }
 
 

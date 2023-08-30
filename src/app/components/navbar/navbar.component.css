@@ -4,6 +4,7 @@
   border: 1px solid black;
   position: fixed;
   background-color: var(--darkest);
+  z-index: 9999;
 }
 .nav-item{
   width: 100%;

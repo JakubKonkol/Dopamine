@@ -1,12 +1,13 @@
 .container{
-  border: 1px solid red;
   display: flex;
-  /*justify-content: center;*/
   align-items: center;
   flex-wrap: wrap;
   background-color: var(--darkest);
   border-radius: 15px;
   padding: 1rem;
+  margin-top:1rem;
+  margin-bottom: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .slider-title{
   color: var(--white);
@@ -15,7 +16,7 @@
   letter-spacing: 0.125rch;
 }
 .carousel{
-  height: 350px;
+  height: 300px;
   width: 100%;
   position: relative;
 }
@@ -24,7 +25,7 @@
   font-weight: bolder;
   height: 100%;
   width: 50px;
-  line-height: 350px;
+  line-height: 300px;
   font-size: 25px;
   text-align: center;
   background-color: var(--darkest);
@@ -39,20 +40,17 @@
 
 .carousel .switchLeft{
   position: absolute;
-  /*left: -50px;*/
   left: 0;
 }
 .carousel .switchRight{
   position: absolute;
-  /*right: -50px;*/
   right: 0;
 }
 .box{
-  height: 350px;
+  height: 300px;
   width: auto;
   overflow: hidden;
   white-space: nowrap;
-  /*display: inline-block;*/
   text-align: center;
   padding-bottom: 10px;
   display: flex;
@@ -79,8 +77,4 @@
 }
 .movie:nth-last-child(1){
   margin-right: 50px;
-}
-.movie{
-
-
 }
