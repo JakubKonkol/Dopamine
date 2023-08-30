@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {Movie} from "../../../model/Movie";
-import {MovieService} from "../../../service/MovieService";
+import {Movie} from "../../model/Movie";
+import {MovieService} from "../../service/MovieService";
 import {HotToastService} from "@ngneat/hot-toast";
 import {pipe} from "rxjs";
-import {toastConfig} from "../../../tools/toastConfig";
+import {toastConfig} from "../../tools/toastConfig";
 
 @Component({
   selector: 'app-movie-page',

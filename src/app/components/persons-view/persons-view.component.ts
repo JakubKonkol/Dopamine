@@ -1,5 +1,5 @@
 import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
-import { Person } from "../../../model/Person";
+import { Person } from "../../model/Person";
 
 @Component({
   selector: 'app-persons-view',

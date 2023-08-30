@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Movie} from "../../../model/Movie";
-import {MovieService} from "../../../service/MovieService";
+import {Movie} from "../../model/Movie";
+import {MovieService} from "../../service/MovieService";
 import {Router} from "@angular/router";
-import {Person} from "../../../model/Person";
-import {PersonService} from "../../../service/PersonService";
+import {Person} from "../../model/Person";
+import {PersonService} from "../../service/PersonService";
 
 @Component({
   selector: 'app-dashboard',

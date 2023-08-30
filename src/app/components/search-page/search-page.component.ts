@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {MovieService} from "../../../service/MovieService";
-import {Movie} from "../../../model/Movie";
+import {MovieService} from "../../service/MovieService";
+import {Movie} from "../../model/Movie";
 import {HotToastService} from "@ngneat/hot-toast";
-import {toastConfig} from "../../../tools/toastConfig";
+import {toastConfig} from "../../tools/toastConfig";
 
 @Component({
   selector: 'app-search-page',

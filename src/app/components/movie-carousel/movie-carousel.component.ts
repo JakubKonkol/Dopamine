@@ -1,5 +1,5 @@
 import {Component, ElementRef, Input, OnInit, Renderer2} from '@angular/core';
-import {Movie} from "../../../model/Movie";
+import {Movie} from "../../model/Movie";
 import {Router} from "@angular/router";
 
 @Component({
