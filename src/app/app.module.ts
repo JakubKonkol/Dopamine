@@ -16,6 +16,7 @@ import {HotToastModule} from "@ngneat/hot-toast";
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { SearchPageComponent } from './components/search-page/search-page.component';
 import {UserService} from "../service/UserService";
+import { MovieCarouselComponent } from './components/movie-carousel/movie-carousel.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {UserService} from "../service/UserService";
     MoviePageComponent,
     DashboardSectionComponent,
     SearchBarComponent,
-    SearchPageComponent
+    SearchPageComponent,
+    MovieCarouselComponent
   ],
     imports: [
         BrowserModule,

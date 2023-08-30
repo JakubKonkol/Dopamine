@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
 import tmdb from "../api/tmdb";
 import {Movie} from "../model/Movie";
+import {Image} from "../model/Image";
 @Injectable(
   {
     providedIn: 'root'
@@ -96,6 +97,15 @@ export class MovieService{
       }
     })
     return movies;
+  }
+  getMovieImages(id: number): Image[]{
+    let images: Image[] = [];
+    tmdb.get('/movie/' + id + '/images').then(async (response) => {
+      for (let item in response.data.backdrops) {
+        images.push(response.data.backdrops[item])
+      }
+    })
+    return images;
   }
 
 }

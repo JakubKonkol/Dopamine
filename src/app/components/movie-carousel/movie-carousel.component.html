@@ -1,0 +1,12 @@
+<div class="container" *ngIf="iterableMovies && title">
+  <h2 class="slider-title">{{title}}</h2>
+  <div class="carousel">
+    <div class="box">
+      <div class="movie" *ngFor="let movie of iterableMovies">
+        <img class="slider-img" src="{{movie.poster_path}}" alt="{{movie.title}} poster" (click)="gotoMovie(movie.id)">
+      </div>
+    </div>
+    <a class="switchLeft slider-button" (click)="scrollLeft()"> < </a>
+    <a class="switchRight slider-button" (click)="scrollRight()"> > </a>
+  </div>
+</div>
