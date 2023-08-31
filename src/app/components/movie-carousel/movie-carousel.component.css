@@ -4,8 +4,8 @@
   flex-wrap: wrap;
   background-color: var(--darkest);
   border-radius: 15px;
-  padding: 1rem;
-  margin-top:1rem;
+  padding: 0.5rem;
+  margin-top:0.5rem;
   margin-bottom: 2rem;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -19,32 +19,6 @@
   height: 300px;
   width: 100%;
   position: relative;
-}
-.carousel .switchLeft, .carousel .switchRight{
-  color: white;
-  font-weight: bolder;
-  height: 100%;
-  width: 50px;
-  line-height: 300px;
-  font-size: 25px;
-  text-align: center;
-  background-color: var(--darkest);
-  top: 0;
-  z-index: 3;
-  border-radius: 15px;
-}
-.carousel .switchLeft:hover, .carousel .switchRight:hover{
-  background-color: var(--dark);
-  cursor: pointer;
-}
-
-.carousel .switchLeft{
-  position: absolute;
-  left: 0;
-}
-.carousel .switchRight{
-  position: absolute;
-  right: 0;
 }
 .box{
   height: 300px;
@@ -73,9 +47,41 @@
   transform: scale(1.1);
   z-index: 5;
 }
-.movie:nth-child(1){
-  margin-left: 50px;
+
+.title-section{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--darkest);
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-.movie:nth-last-child(1){
-  margin-right: 50px;
+.title-text{
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.125rch;
+}
+.rotate-left{
+  transform: rotate(180deg);
+}
+.controls{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.left-btn, .right-btn{
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: 0.5s ease;
+  border-radius: 10px;
+}
+.left-btn:hover, .right-btn:hover{
+  background-color: var(--dark);
+}
+.controls > a{
+  display: flex;
+  align-items: center;
 }
