@@ -20,6 +20,7 @@ import { MovieCarouselComponent } from './components/movie-carousel/movie-carous
 import {PersonService} from "./service/PersonService";
 import { PersonsViewComponent } from './components/persons-view/persons-view.component';
 import { NewNavComponent } from './components/new-nav/new-nav.component';
+import { FeaturedComponent } from './components/featured/featured.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { NewNavComponent } from './components/new-nav/new-nav.component';
     SearchPageComponent,
     MovieCarouselComponent,
     PersonsViewComponent,
-    NewNavComponent
+    NewNavComponent,
+    FeaturedComponent
   ],
     imports: [
         BrowserModule,

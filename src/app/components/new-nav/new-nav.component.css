@@ -38,6 +38,7 @@
     align-items: center;
     background-color: #282f31;
     padding: 10px;
+    z-index: 9999;
 }
 
 .navbar-item, .user-stats {
@@ -70,7 +71,7 @@
       display: none;
     }
     .navbar{
-      position: absolute;
+      position: fixed;
       bottom: 0;
       width: 100%;
       justify-content: space-evenly;
