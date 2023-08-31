@@ -85,7 +85,10 @@ export class MovieService{
     try{
       const response = await tmdb.get('/search/movie', {
         params: {
-          query: query
+          query: query,
+          include_adult: false,
+          language: 'en-US',
+          page: 1,
         }
       });
       for (const item in response.data.results) {
