@@ -98,14 +98,32 @@ export class MovieService{
     })
     return movies;
   }
-  getMovieImages(id: number): Image[]{
+  async getMovieImages(id: number): Promise<Image[]> {
     let images: Image[] = [];
-    tmdb.get('/movie/' + id + '/images').then(async (response) => {
-      for (let item in response.data.backdrops) {
-        images.push(response.data.backdrops[item])
+
+    try {
+      const response = await tmdb.get('/movie/' + id + '/images');
+      for (const item in response.data.backdrops) {
+        images.push(response.data.backdrops[item]);
       }
-    })
+    } catch (error) {
+      console.error('Error fetching images:', error);
+    }
+
     return images;
   }
+  async getTrendingMovies(): Promise<Movie[]>{
+    let movies: Movie[] = [];
+    try{
+      const response = await tmdb.get('/trending/movie/week');
+      for (const item in response.data.results) {
+        movies.push(await this.getMovieById(response.data.results[item].id))
+      }
+    }catch (error) {
+      console.error('Error fetching images:', error);
+    }
+    return movies;
+  }
+
 
 }
