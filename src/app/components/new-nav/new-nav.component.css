@@ -65,4 +65,25 @@
     cursor: pointer;
     color:black;
 }
+@media only screen and (max-width:768px) {
+    .navbar > .navbar-item > p{
+      display: none;
+    }
+    .navbar{
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      justify-content: space-evenly;
+      margin-top: 5rem;
+    }
+    .container{
+
+    }
+    .welcome-text > p{
+      display: none;
+    }
+  .navbar-item svg, .user-stats svg{
+    margin-right: 0;
+  }
+}
 
