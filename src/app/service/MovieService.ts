@@ -9,13 +9,16 @@ import {Image} from "../model/Image";
 )
 export class MovieService{
 
-  getPopularMovies(): Movie[]{
+  async getPopularMovies(): Promise<Movie[]>{
     let movies: Movie[] = [];
-    tmdb.get('/movie/popular').then(async (response) => {
-      for (let item in response.data.results) {
+    try{
+      const response = await tmdb.get('/movie/popular');
+      for (const item in response.data.results) {
         movies.push(await this.getMovieById(response.data.results[item].id))
       }
-    })
+    }catch (error) {
+      console.error('Error fetching movies:', error);
+    }
     return movies;
   }
   async getMovieById(id: number): Promise<Movie> {
@@ -53,49 +56,56 @@ export class MovieService{
       throw error;
     }
   }
-  getTopRatedMovies(): Movie[]{
+  async getTopRatedMovies(): Promise<Movie[]>{
     let movies: Movie[] = [];
-    tmdb.get('/movie/top_rated').then(async (response) => {
-      for (let item in response.data.results) {
+    try{
+      const response = await tmdb.get('/movie/top_rated');
+      for (const item in response.data.results) {
         movies.push(await this.getMovieById(response.data.results[item].id))
       }
-    })
+    }catch (error) {
+      console.error('Error fetching movies:', error);
+    }
     return movies;
   }
-  getUpcomingMovies(): Movie[]{
+  async getUpcomingMovies(): Promise<Movie[]>{
     let movies: Movie[] = [];
-    tmdb.get('/movie/upcoming').then(async (response) => {
-      for (let item in response.data.results) {
+    try{
+      const response = await tmdb.get('/movie/upcoming');
+      for (const item in response.data.results) {
         movies.push(await this.getMovieById(response.data.results[item].id))
       }
-    }).catch((error) => {
-      console.log(error);
-    })
+    }catch (error) {
+      console.error('Error fetching movies:', error);
+    }
     return movies;
   }
-  searchMovie(query: string): Movie[]{
+  async searchMovie(query: string): Promise<Movie[]>{
     let movies: Movie[] = [];
-    tmdb.get('/search/movie', {
-      params: {
-        query: query,
-        include_adult: false,
-        language: 'en-US',
-        page: 2
-      }
-    }).then(async (response) => {
-      for (let item in response.data.results) {
+    try{
+      const response = await tmdb.get('/search/movie', {
+        params: {
+          query: query
+        }
+      });
+      for (const item in response.data.results) {
         movies.push(await this.getMovieById(response.data.results[item].id))
       }
-    })
+    }catch (error) {
+      console.error('Error fetching movies:', error);
+    }
     return movies;
   }
-  getSimilarMovies(id: number): Movie[]{
+  async getSimilarMovies(id: number): Promise<Movie[]>{
     let movies: Movie[] = [];
-    tmdb.get('/movie/' + id + '/similar').then(async (response) => {
-      for (let item in response.data.results) {
+    try{
+      const response = await tmdb.get('/movie/' + id + '/similar');
+      for (const item in response.data.results) {
         movies.push(await this.getMovieById(response.data.results[item].id))
       }
-    })
+    }catch (error) {
+      console.error('Error fetching similar movies:', error);
+    }
     return movies;
   }
   async getMovieImages(id: number): Promise<Image[]> {

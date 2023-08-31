@@ -23,9 +23,9 @@ export class SearchPageComponent implements OnInit, OnDestroy{
   query: string = "";
   routeSub: Subscription = new Subscription();
   async ngOnInit(): Promise<void> {
-    this.routeSub = this.route.params.subscribe(params => {
+    this.routeSub = this.route.params.subscribe(async params => {
       this.query = params['query'];
-      this.foundMovies = this.movieService.searchMovie(this.query);
+      this.foundMovies = await this.movieService.searchMovie(this.query);
     })
 
   }

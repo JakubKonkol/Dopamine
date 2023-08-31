@@ -6,7 +6,7 @@ import tmdb from "../api/tmdb";
     providedIn: 'root'
 })
 export class PersonService{
-    getPopularPersons(): Person[]{
+    async getPopularPersons(): Promise<Person[]>{
         let persons: Person[] = [];
         tmdb.get('/trending/person/week').then(async (response) => {
             for (let person in response.data.results) {

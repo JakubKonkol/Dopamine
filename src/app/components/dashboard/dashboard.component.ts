@@ -21,10 +21,10 @@ export class DashboardComponent implements OnInit{
       private personService: PersonService
   ){}
   async ngOnInit(): Promise<void> {
-    this.popularMovies = this.movieService.getPopularMovies();
-    this.topRatedMovies = this.movieService.getTopRatedMovies();
-    this.upcomingMovies = this.movieService.getUpcomingMovies();
-    this.popularPersons = this.personService.getPopularPersons();
+    this.popularMovies = await this.movieService.getPopularMovies();
+    this.topRatedMovies = await this.movieService.getTopRatedMovies();
+    this.upcomingMovies = await this.movieService.getUpcomingMovies();
+    this.popularPersons = await this.personService.getPopularPersons();
   }
 
 

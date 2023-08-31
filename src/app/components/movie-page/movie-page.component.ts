@@ -20,7 +20,7 @@ export class MoviePageComponent implements OnInit{
   async ngOnInit(): Promise<void> {
     this.movieId = this.route.snapshot.params['id'];
     this.movie = await this.movieService.getMovieById(this.movieId);
-    this.similarMovies = this.movieService.getSimilarMovies(this.movieId);
+    this.similarMovies = await this.movieService.getSimilarMovies(this.movieId);
   }
   filterDate(date: string): string{
     return date.split('-')[0];
