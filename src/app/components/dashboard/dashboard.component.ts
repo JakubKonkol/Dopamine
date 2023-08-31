@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit{
       private router: Router,
       private personService: PersonService
   ){}
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.popularMovies = this.movieService.getPopularMovies();
     this.topRatedMovies = this.movieService.getTopRatedMovies();
     this.upcomingMovies = this.movieService.getUpcomingMovies();

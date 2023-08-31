@@ -1,0 +1,13 @@
+<div class="ifnot" *ngIf="!shouldRenderData">
+  <h1> Fetching data...</h1>
+</div>
+<div class="container" *ngIf="shouldRenderData">
+    <img src="{{backdrop}}" alt="backdrop" class="img">
+    <div class="text">
+      <h1 class="title"> {{movie.title}} </h1>
+      <p> {{movie.tagline}}</p>
+      <a href="/movie/{{movie.id}}" class="btn">
+        <span> View Details</span>
+      </a>
+    </div>
+</div>
