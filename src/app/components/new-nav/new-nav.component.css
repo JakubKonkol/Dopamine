@@ -87,4 +87,16 @@
     margin-right: 0;
   }
 }
-
+.vroom{
+  transition: ease-in-out;
+  animation-name: vrooom;
+  animation-duration: 2s;
+}
+@keyframes vrooom {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
