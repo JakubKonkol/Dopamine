@@ -5,6 +5,7 @@ import {MovieService} from "../../service/MovieService";
 import {HotToastService} from "@ngneat/hot-toast";
 import {toastConfig} from "../../tools/toastConfig";
 import {CastMember} from "../../model/CastMember";
+import {WatchProvider} from "../../model/WatchProvider";
 
 @Component({
   selector: 'app-movie-page',
@@ -16,6 +17,8 @@ export class MoviePageComponent implements OnInit{
   movie!: Movie;
   movieCast!: CastMember[];
   filteredCast!: CastMember[];
+  watchProviders!: WatchProvider[];
+  isWatchProvider:boolean = false;
   constructor(private route: ActivatedRoute, private movieService: MovieService, private toast: HotToastService){}
 
   async ngOnInit(): Promise<void> {
@@ -24,9 +27,16 @@ export class MoviePageComponent implements OnInit{
       this.movie = await this.movieService.getMovieById(this.movieId);
       this.movieCast = await this.movieService.getMovieCast(this.movieId);
       this.filteredCast = await this.filterCast(this.movieCast);
+      this.watchProviders = await this.movieService.getWatchProviders(this.movieId);
     } catch(error){
       console.error('Error fetching movie data:', error);
     }
+    if (this.watchProviders){
+      this.isWatchProvider = true;
+    }
+  }
+  getProviderLogo(provider: WatchProvider): string{
+    return "https://image.tmdb.org/t/p/w500" + provider.logo_path;
   }
   getActorImage(actor: CastMember): string{
     return "https://image.tmdb.org/t/p/w500" + actor.profile_path;
@@ -35,7 +45,6 @@ export class MoviePageComponent implements OnInit{
     let processedCast: CastMember[] = [];
     cast = cast.sort((a, b) => (a.order > b.order) ? 1 : -1);
     processedCast = cast.filter((item, index) => index < 10);
-    console.log(processedCast);
     return processedCast;
   }
   filterDate(date: string): string{

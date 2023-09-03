@@ -3,6 +3,8 @@ import tmdb from "../api/tmdb";
 import {Movie} from "../model/Movie";
 import {Image} from "../model/Image";
 import {CastMember} from "../model/CastMember";
+import {WatchProvider} from "../model/WatchProvider";
+import {catchError} from "rxjs";
 @Injectable(
   {
     providedIn: 'root'
@@ -151,6 +153,28 @@ export class MovieService{
     }
     return cast;
   }
+  async getWatchProviders(movieID: number, locale?: string): Promise<WatchProvider[]> {
+    let watchProviders: WatchProvider[] = [];
+    let REGION: string = 'PL';
+    if(locale){
+      REGION = locale;
+    }
+    try {
+      const response = await tmdb.get('/movie/' + movieID + '/watch/providers');
+      if (response.data.results && response.data.results[REGION] && response.data.results[REGION].flatrate) {
+        for (const item in response.data.results[REGION].flatrate) {
+          watchProviders.push(response.data.results[REGION].flatrate[item]);
+        }
+      }else {
+        console.error('This movie is not available on any streaming platform in your country');
+      }
+    }catch (error) {
+      throw new Error('Error fetching watch providers: ' + error);
+    }
+    return watchProviders;
+  }
+
+
 
 
 }
