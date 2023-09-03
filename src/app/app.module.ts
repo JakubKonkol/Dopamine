@@ -21,6 +21,7 @@ import {PersonService} from "./service/PersonService";
 import { PersonsViewComponent } from './components/persons-view/persons-view.component';
 import { NewNavComponent } from './components/new-nav/new-nav.component';
 import { FeaturedComponent } from './components/featured/featured.component';
+import {TVSeriesService} from "./service/TVSeriesService";
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { FeaturedComponent } from './components/featured/featured.component';
   providers: [
       MovieService,
       UserService,
-      PersonService
+      PersonService,
+      TVSeriesService
   ],
   bootstrap: [AppComponent]
 })

@@ -6,10 +6,13 @@
   <app-movie-carousel
     title="Trending movies!"
     [iterableMovies]="popularMovies"
+    type="Movie"
     />
-<!--  <app-persons-view-->
-<!--    [iterablePersons]="popularPersons"-->
-<!--    />-->
+  <app-movie-carousel
+    title="Trending series!"
+    [iterableSeries]="trendingSeries"
+    type="ISeries"
+  />
 
 
 </div>
