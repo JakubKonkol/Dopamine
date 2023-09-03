@@ -16,8 +16,9 @@ Dopamine is your personal movie diary application that helps you keep track of t
 Whether you're a casual moviegoer or a cinephile, Dopamine provides you with a simple yet powerful way to manage your movie collection,
 discover new films, and track your viewing habits. With Dopamine, you can easily browse movies, add them to your playlists or watchlist, and view statistics about your movie-watching journey.
 
-## Features 📋
-- [x] Browse movies and TV shows.
+## Gallery 📷
+  <img src="src/assets/sc1.png" width="45%">
+  <img src="src/assets/sc2.png" width="45%">
 
 ## Building & Running 🛠️
 1. Install Node.js from [here](https://nodejs.org/en/download/).
