@@ -1,5 +1,3 @@
-import {ImageFilter} from "../tools/ImageFilter";
-
 export class Movie{
   private _adult: boolean;
   private _backdrop_path: string;

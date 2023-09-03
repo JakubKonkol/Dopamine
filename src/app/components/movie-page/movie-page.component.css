@@ -31,6 +31,7 @@ h2{
   font-weight: 600;
   letter-spacing: 0.06em;
   color: var(--white);
+  margin-top:1rem;
 }
 .rating svg{
   width: 1.2em;
@@ -105,12 +106,56 @@ p{
 .controls > button:hover svg{
   fill: var(--darkest);
 }
+.section{
+  background-color: var(--darkest);
+  padding: 1.2rem;
+  border-radius: 15px;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+  margin-top: 1rem;
+}
+.section:nth-last-child(1){
+  margin-bottom: 5rem;
+}
+.cast-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.actor-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.actor-img{
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+}
+.section-title{
+  margin-bottom: 0.5rem;
+}
+.section-title > h2{
+
+}
+.actor-name{
+  font-weight: 600;
+}
+.actor-character{
+  filter: grayscale(0.8) opacity(0.8);
+}
+.info-box{
+
+}
 @media only screen and (min-width: 1200px){
   .poster{
     width: 20%;
   }
   .info{
     display: flex;
+    justify-content: center;
   }
 }
 @media only screen and (max-width: 780px){

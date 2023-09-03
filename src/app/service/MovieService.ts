@@ -2,6 +2,7 @@ import {Injectable} from "@angular/core";
 import tmdb from "../api/tmdb";
 import {Movie} from "../model/Movie";
 import {Image} from "../model/Image";
+import {CastMember} from "../model/CastMember";
 @Injectable(
   {
     providedIn: 'root'
@@ -136,6 +137,19 @@ export class MovieService{
       console.error('Error fetching images:', error);
     }
     return movies;
+  }
+  async getMovieCast(id: number): Promise<CastMember[]>{
+    let cast: CastMember[] = [];
+    try{
+      const response = await tmdb.get('/movie/' + id + '/credits');
+      for (const item in response.data.cast) {
+        cast.push(response.data.cast[item]);
+      }
+    }
+    catch (error) {
+      throw new Error('Error fetching cast:' + error)
+    }
+    return cast;
   }
 
 

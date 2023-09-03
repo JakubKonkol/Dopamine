@@ -3,8 +3,8 @@ import {ActivatedRoute} from "@angular/router";
 import {Movie} from "../../model/Movie";
 import {MovieService} from "../../service/MovieService";
 import {HotToastService} from "@ngneat/hot-toast";
-import {pipe} from "rxjs";
 import {toastConfig} from "../../tools/toastConfig";
+import {CastMember} from "../../model/CastMember";
 
 @Component({
   selector: 'app-movie-page',
@@ -14,22 +14,45 @@ import {toastConfig} from "../../tools/toastConfig";
 export class MoviePageComponent implements OnInit{
   movieId!: number;
   movie!: Movie;
-  similarMovies!: Movie[];
+  movieCast!: CastMember[];
+  filteredCast!: CastMember[];
   constructor(private route: ActivatedRoute, private movieService: MovieService, private toast: HotToastService){}
 
   async ngOnInit(): Promise<void> {
     this.movieId = this.route.snapshot.params['id'];
-    this.movie = await this.movieService.getMovieById(this.movieId);
-    this.similarMovies = await this.movieService.getSimilarMovies(this.movieId);
+    try{
+      this.movie = await this.movieService.getMovieById(this.movieId);
+      this.movieCast = await this.movieService.getMovieCast(this.movieId);
+      this.filteredCast = await this.filterCast(this.movieCast);
+    } catch(error){
+      console.error('Error fetching movie data:', error);
+    }
+  }
+  getActorImage(actor: CastMember): string{
+    return "https://image.tmdb.org/t/p/w500" + actor.profile_path;
+  }
+  async filterCast(cast: CastMember[]): Promise<CastMember[]>{
+    let processedCast: CastMember[] = [];
+    cast = cast.sort((a, b) => (a.order > b.order) ? 1 : -1);
+    processedCast = cast.filter((item, index) => index < 10);
+    console.log(processedCast);
+    return processedCast;
   }
   filterDate(date: string): string{
     return date.split('-')[0];
   }
   roundRating(rating: number): number{
     return Math.round(rating * 10) / 10;
-
   }
-
+  formatDateToLocale(date: string): string{
+    return new Date(date).toLocaleDateString();
+  }
+  roundToMillion(number: number): string{
+    if(number > 1000000000){
+      return (number / 1000000000).toFixed(1)+' B';
+    }
+    return (number / 1000000).toFixed(1)+' M';
+  }
   test() {
     this.toast.success('Added!',
       toastConfig)
