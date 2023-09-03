@@ -9,9 +9,15 @@
 
 </div>
 
-# Dopamine
+# Dopamine - Your personal movie & TV show diary 🍿🎬
 
-Dopamine is web application that allows you to track your favorite movies and TV shows.
+## About 📖
+Dopamine is your personal movie diary application that helps you keep track of the films you watch.
+Whether you're a casual moviegoer or a cinephile, Dopamine provides you with a simple yet powerful way to manage your movie collection,
+discover new films, and track your viewing habits. With Dopamine, you can easily browse movies, add them to your playlists or watchlist, and view statistics about your movie-watching journey.
+
+## Features 📋
+- [x] Browse movies and TV shows.
 
 ## Building & Running 🛠️
 1. Install Node.js from [here](https://nodejs.org/en/download/).
