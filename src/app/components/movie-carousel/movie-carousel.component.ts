@@ -41,4 +41,8 @@ export class MovieCarouselComponent implements OnInit{
   gotoMovie(id: number) {
     this.router.navigate(['/movie', id]).then();
   }
+
+  gotoSeries(id: number) {
+    this.router.navigate(['/tv', id]).then();
+  }
 }

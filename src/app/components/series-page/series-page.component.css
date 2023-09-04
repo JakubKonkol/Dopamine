@@ -1,0 +1,198 @@
+.container{
+  /*display: flex;*/
+  /*justify-content: center;*/
+  background-color: var(--darkest);
+  padding: 1.2rem;
+  border-radius: 15px;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+}
+.info{
+  position: relative;
+  display: grid;
+  grid-template-columns: 4fr 8fr;
+  align-items: center;
+  margin-top: 1.2em;
+}
+.poster{
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+}
+.rating{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  margin: 0.6em 0 0.9em 0;
+}
+h2{
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--white);
+  margin-top:1rem;
+}
+.rating svg{
+  width: 1.2em;
+}
+.rating h4{
+  display: inline-block;
+  font-size: 1.2em;
+  font-weight: 500;
+  color: var(--white);
+}
+.details{
+  display: flex;
+  font-size: 0.9em;
+  gap: 1em;
+  justify-content: center;
+  color: var(--white);
+  margin: 0.6em 0;
+  font-weight: 300;
+}
+.genres {
+  display: flex;
+  justify-content: space-around;
+}
+.genres > div{
+  border: 1px solid #ccc;
+  padding: 0.4em 1.6em;
+  border-radius: 0.4em;
+  font-size: 0.75em;
+  font-weight: 300;
+  color: var(--white);
+}
+h3{
+  font-weight: 500;
+  margin: 1.2em;
+  color: var(--white);
+  filter: grayscale(0.8) opacity(0.8);
+}
+p{
+  font-size: 0.9em;
+  font-weight: 300;
+  line-height: 1.8em;
+  text-align: justify;
+  color: #ccc;
+}
+.controls{
+  height: auto;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.controls > button{
+  padding: 1rem 1.5rem;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  border: 1px solid var(--light);
+  background-color: transparent;
+  color: var(--white);
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+  text-align: center;
+  border-radius: 4px;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.controls > button:hover{
+  background-color: var(--light);
+  color: var(--darkest);
+  cursor: pointer;
+}
+.controls > button:hover svg{
+  fill: var(--darkest);
+}
+.section{
+  background-color: var(--darkest);
+  padding: 1.2rem;
+  border-radius: 15px;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+  margin-top: 1rem;
+}
+.section:nth-last-child(1){
+  margin-bottom: 5rem;
+}
+.cast-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.actor-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.actor-img{
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+}
+.section-title{
+  margin-bottom: 0.5rem;
+}
+.section-title > h2{
+
+}
+.actor-name{
+  font-weight: 600;
+}
+.actor-character{
+  filter: grayscale(0.8) opacity(0.8);
+}
+.info-box{
+
+}
+.watch-providers{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.watch-providers > div{
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.125rem;
+  border-radius: 4px;
+}
+@media only screen and (min-width: 1200px){
+  .poster{
+    width: 20%;
+  }
+  .info{
+    display: flex;
+    justify-content: center;
+  }
+}
+@media only screen and (max-width: 780px){
+  .container{
+    font-size: 14px;
+  }
+  .info{
+    grid-template-columns: 1fr;
+  }
+  .poster{
+    margin: auto;
+    width: 35%;
+  }
+  .controls{
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .controls > button{
+    width: 100%;
+    justify-content: center;
+  }
+}

@@ -22,6 +22,7 @@ import { PersonsViewComponent } from './components/persons-view/persons-view.com
 import { NewNavComponent } from './components/new-nav/new-nav.component';
 import { FeaturedComponent } from './components/featured/featured.component';
 import {TVSeriesService} from "./service/TVSeriesService";
+import { SeriesPageComponent } from './components/series-page/series-page.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {TVSeriesService} from "./service/TVSeriesService";
     MovieCarouselComponent,
     PersonsViewComponent,
     NewNavComponent,
-    FeaturedComponent
+    FeaturedComponent,
+    SeriesPageComponent
   ],
     imports: [
         BrowserModule,

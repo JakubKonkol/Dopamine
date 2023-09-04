@@ -20,7 +20,7 @@
   <div class="carousel">
     <div class="box">
       <div class="movie" *ngFor="let series of iterableSeries">
-        <img class="slider-img" src="{{getSeriesPosterPath(series.poster_path)}}" alt="{{series.name}} poster">
+        <img class="slider-img" src="{{getSeriesPosterPath(series.poster_path)}}" alt="{{series.name}} poster" (click)="gotoSeries(series.id)">
       </div>
     </div>
   </div>
