@@ -1,11 +1,11 @@
-import {TVSeriesCreator} from "./TVSeriesCreator";
-import {Genre} from "./Genre";
-import {TVSeriesEpisode} from "./TVSeriesEpisode";
-import {TVSeriesNetwork} from "./TVSeriesNetwork";
-import {TVSeriesProductionCompanies} from "./TVSeriesProductionCompanies";
-import {TVSeriesProductionCountry} from "./TVSeriesProductionCountry";
-import {TVSeriesSeason} from "./TVSeriesSeason";
-import {TVSeriesSpokenLanguage} from "./TVSeriesSpokenLanguage";
+import {TVSeriesCreator} from "./helpers/TVSeriesCreator";
+import {Genre} from "./helpers/Genre";
+import {TVSeriesEpisode} from "./helpers/TVSeriesEpisode";
+import {TVSeriesNetwork} from "./helpers/TVSeriesNetwork";
+import {TVSeriesProductionCompanies} from "./helpers/TVSeriesProductionCompanies";
+import {TVSeriesProductionCountry} from "./helpers/TVSeriesProductionCountry";
+import {TVSeriesSeason} from "./helpers/TVSeriesSeason";
+import {TVSeriesSpokenLanguage} from "./helpers/TVSeriesSpokenLanguage";
 
 export interface TVSeries{
   adult: boolean;

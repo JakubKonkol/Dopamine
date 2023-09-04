@@ -1,4 +1,4 @@
-import {Image} from "../model/Image";
+import {Image} from "../model/helpers/Image";
 
 
 export class ImageFilter{

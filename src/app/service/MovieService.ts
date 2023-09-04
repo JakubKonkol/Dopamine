@@ -1,9 +1,9 @@
 import {Injectable} from "@angular/core";
 import tmdb from "../api/tmdb";
 import {Movie} from "../model/Movie";
-import {Image} from "../model/Image";
-import {CastMember} from "../model/CastMember";
-import {WatchProvider} from "../model/WatchProvider";
+import {Image} from "../model/helpers/Image";
+import {CastMember} from "../model/helpers/CastMember";
+import {WatchProvider} from "../model/helpers/WatchProvider";
 import {catchError} from "rxjs";
 @Injectable(
   {

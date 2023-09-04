@@ -1,6 +1,4 @@
 .container{
-  /*display: flex;*/
-  /*justify-content: center;*/
   background-color: var(--darkest);
   padding: 1.2rem;
   border-radius: 15px;
@@ -140,6 +138,12 @@ p{
 .section-title > h2{
 
 }
+.movie-details{
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  justify-content: center;
+}
 .actor-name{
   font-weight: 600;
 }
@@ -164,6 +168,28 @@ p{
   gap: 0.5rem;
   padding: 0.125rem;
   border-radius: 4px;
+}
+.seasons{
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-direction: column;
+}
+.seasons > div{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.125rem;
+  border-radius: 4px;
+  color: var(--white);
+}
+.seasons > div > span{
+  font-size: 1.2rem;
+  color: var(--white);
+  font-weight: 450;
 }
 @media only screen and (min-width: 1200px){
   .poster{

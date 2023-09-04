@@ -4,8 +4,8 @@ import {Movie} from "../../model/Movie";
 import {MovieService} from "../../service/MovieService";
 import {HotToastService} from "@ngneat/hot-toast";
 import {toastConfig} from "../../tools/toastConfig";
-import {CastMember} from "../../model/CastMember";
-import {WatchProvider} from "../../model/WatchProvider";
+import {CastMember} from "../../model/helpers/CastMember";
+import {WatchProvider} from "../../model/helpers/WatchProvider";
 
 @Component({
   selector: 'app-movie-page',
