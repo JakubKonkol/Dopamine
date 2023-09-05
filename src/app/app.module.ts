@@ -8,7 +8,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { MovieViewComponent } from './components/movie-view/movie-view.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { MoviePageComponent } from './components/movie-page/movie-page.component';
 import { DashboardSectionComponent } from './components/dashboard-section/dashboard-section.component';
 import {NgOptimizedImage} from "@angular/common";
@@ -23,6 +23,11 @@ import { NewNavComponent } from './components/new-nav/new-nav.component';
 import { FeaturedComponent } from './components/featured/featured.component';
 import {TVSeriesService} from "./service/TVSeriesService";
 import { SeriesPageComponent } from './components/series-page/series-page.component';
+import {environment} from "./environments/environment";
+import {AuthService} from "./service/AuthService";
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import {AngularFireModule} from "@angular/fire/compat";
 
 @NgModule({
   declarations: [
@@ -39,20 +44,25 @@ import { SeriesPageComponent } from './components/series-page/series-page.compon
     PersonsViewComponent,
     NewNavComponent,
     FeaturedComponent,
-    SeriesPageComponent
+    SeriesPageComponent,
+    LoginComponent,
+    RegisterComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        NgOptimizedImage,
-        HotToastModule.forRoot()
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    NgOptimizedImage,
+    HotToastModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    ReactiveFormsModule
+  ],
   providers: [
       MovieService,
       UserService,
       PersonService,
-      TVSeriesService
+      TVSeriesService,
+      AuthService
   ],
   bootstrap: [AppComponent]
 })

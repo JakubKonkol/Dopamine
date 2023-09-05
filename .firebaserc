@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "dopamine-a432b": {
+      "hosting": {
+        "Escapix": [
+          "dopamine-a432b"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "dopamine-a432b"
+  }
+}
