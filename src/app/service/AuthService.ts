@@ -19,7 +19,9 @@ export class AuthService{
       this.toast.success('Logged in successfully!', toastConfig)
       this.router.navigate(['']).then();
     }, err => {
-      console.log(err.message);
+      this.toast.error(err.message, {
+        duration: 3500
+      });
     })
   }
   register(email: string, password: string){
@@ -28,7 +30,9 @@ export class AuthService{
       this.toast.success('Registered successfully!', toastConfig)
       this.router.navigate(['']).then();
     }, err => {
-      console.log(err.message);
+      this.toast.error(err.message, {
+        duration: 3500
+      });
     })
   }
   logout(){
