@@ -17,12 +17,12 @@ export class ProfileComponent implements OnInit{
               private toast: HotToastService,
               private authService: AuthService) {}
 
-  currentUser!: IUser | null;
+  currentUser!: IUser;
   async ngOnInit(): Promise<void> {
     if (localStorage.getItem('userUID') == null) {
       this.router.navigate(['login']).then();
     }
-    this.currentUser = await this.userService.getCurrentUser();
+
   }
 
   logout() {
