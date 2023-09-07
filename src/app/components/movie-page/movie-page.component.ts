@@ -48,6 +48,28 @@ export class MoviePageComponent implements OnInit{
       this.user = value;
     })
   }
+  markAsWatched(){
+    this.user.movieHistory?.push(this.movieId);
+    this.userService.updateUser(this.user).then(() => {
+        this.toast.success('Added!',
+          toastConfig)
+      }
+    );
+  }
+  removeFromHistory(){
+    this.user.movieHistory?.splice(this.user.movieHistory.indexOf(this.movieId), 1);
+    this.userService.updateUser(this.user).then(
+      () => this.toast.success('Removed!',
+        toastConfig)
+    );
+  }
+  movieAlreadyInHistory(){
+    return this.user.movieHistory?.includes(this.movieId);
+  }
+  movieAlreadyInWatchList() {
+    return this.user.movieWatchList?.includes(this.movieId);
+  }
+
   async addToWatchList(){
     this.user.movieWatchList?.push(this.movieId);
     await this.userService.updateUser(this.user);
@@ -81,11 +103,6 @@ export class MoviePageComponent implements OnInit{
     }
     return (number / 1000000).toFixed(1)+' M';
   }
-
-  movieAlreadyInWatchList() {
-    return this.user.movieWatchList?.includes(this.movieId);
-  }
-
   removeFromWatchlist() {
     this.user.movieWatchList?.splice(this.user.movieWatchList.indexOf(this.movieId), 1);
     this.userService.updateUser(this.user).then(
