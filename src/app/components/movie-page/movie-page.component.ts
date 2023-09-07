@@ -22,6 +22,7 @@ export class MoviePageComponent implements OnInit{
   watchProviders!: WatchProvider[];
   isWatchProvider:boolean = false;
   user!: IUser;
+  playlistModalOpen: boolean = false;
   constructor(private route: ActivatedRoute,
               private movieService: MovieService,
               private toast: HotToastService,
@@ -47,6 +48,9 @@ export class MoviePageComponent implements OnInit{
       }
       this.user = value;
     })
+  }
+  togglePlaylistModal(){
+    this.playlistModalOpen = !this.playlistModalOpen;
   }
   markAsWatched(){
     this.user.movieHistory?.push(this.movieId);

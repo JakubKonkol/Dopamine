@@ -22,6 +22,7 @@ export class SeriesPageComponent implements OnInit{
   watchProviders!: WatchProvider[];
   isWatchProvider:boolean = false;
   user!: IUser;
+  playlistModalOpen: boolean = false;
   constructor(
     private route: ActivatedRoute,
     private tvSeriesService: TVSeriesService,
@@ -47,6 +48,9 @@ export class SeriesPageComponent implements OnInit{
       }
       this.user = value;
     })
+  }
+  togglePlaylistModal(){
+    this.playlistModalOpen = !this.playlistModalOpen;
   }
   addToWatchList(){
     this.user.seriesWatchList?.push(this.tvSerieID);

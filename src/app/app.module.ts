@@ -30,6 +30,7 @@ import { RegisterComponent } from './components/register/register.component';
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 import { ProfileDropdownComponent } from './components/profile-dropdown/profile-dropdown.component';
+import { PlaylistModalComponent } from './components/playlist-modal/playlist-modal.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { ProfileDropdownComponent } from './components/profile-dropdown/profile-
     SeriesPageComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileDropdownComponent
+    ProfileDropdownComponent,
+    PlaylistModalComponent
   ],
   imports: [
     BrowserModule,
