@@ -22,7 +22,23 @@ export class ProfileComponent implements OnInit{
     if (localStorage.getItem('userUID') == null) {
       this.router.navigate(['login']).then();
     }
+     this.userService.getCurrentUser$().subscribe(value => {
+      if(value == null){
+        localStorage.removeItem('userUID');
+        this.router.navigate(['login']).then();
+        return;
+      }
+      this.currentUser = value;
+    })
 
+  }
+  addToWatchlist(){
+    this.currentUser.watchList?.push(1337);
+    this.userService.updateUser(this.currentUser).then(() => {
+      this.toast.success('Added to watchlist!', {
+        duration: 3500
+      })
+    })
   }
 
   logout() {

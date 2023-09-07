@@ -1,5 +1,6 @@
 <p *ngIf="currentUser">
-    {{currentUser.uid}}
-    {{currentUser.watchList}}
+    UID: {{currentUser.uid}} <br/>
+    watchList: {{currentUser.watchList}}
+  <button (click)="addToWatchlist()"> ADD TO WATCHLIST TEST</button>
 </p>
 <button (click)="logout()">Logout</button>

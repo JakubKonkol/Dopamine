@@ -28,11 +28,7 @@ import {AuthService} from "./service/AuthService";
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import {AngularFireModule} from "@angular/fire/compat";
-import {AngularFireStorageModule} from "@angular/fire/compat/storage";
-import {getFirestore, provideFirestore} from "@angular/fire/firestore";
-import {getStorage, provideStorage} from "@angular/fire/storage";
-import {initializeApp, provideFirebaseApp} from "@angular/fire/app";
-import {getAuth, provideAuth} from "@angular/fire/auth";
+import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 
 @NgModule({
   declarations: [
@@ -59,11 +55,9 @@ import {getAuth, provideAuth} from "@angular/fire/auth";
     FormsModule,
     NgOptimizedImage,
     HotToastModule.forRoot(),
-    AngularFireModule.initializeApp(environment.firebaseConfig),
     ReactiveFormsModule,
-    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
-    provideStorage(()=> getStorage()),
-    provideFirestore(() => getFirestore()),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule
   ],
   providers: [
       MovieService,
