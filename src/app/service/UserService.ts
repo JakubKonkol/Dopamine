@@ -10,26 +10,20 @@ export class UserService{
   constructor(
     private afs: AngularFirestore
   ) {}
-    private currentUserSubject: BehaviorSubject<IUser | null> = new BehaviorSubject<IUser | null>(null)
   async saveNewUserWithUID(uid: string, user: IUser) {
-    return this.afs.collection('users').doc(uid).set(user).then(
-      () => {
-        this.currentUserSubject.next(user);
-      }
-    );
+    return this.afs.collection('users').doc(uid).set(user);
   }
   async getUserWithUID(uid: string) {
-    return this.afs.collection('users').doc(uid).get().subscribe(value => {
-      this.currentUserSubject.next(value.data() as IUser);
-    })
+    return this.afs.collection('users').doc(uid).get();
   }
   async updateUser(user: IUser){
-      return this.afs.collection('users').doc(user.uid).update(user).then(() => {
-        this.currentUserSubject.next(user);
-      })
+      return this.afs.collection('users').doc(user.uid).update(user);
   }
   getCurrentUser$(){
-      return this.currentUserSubject.asObservable();
+    if(localStorage.getItem('userUID') == null){
+      throw new Error('User is not logged in!');
+    }
+      return this.afs.collection('users').doc(localStorage.getItem('userUID')!).valueChanges() as BehaviorSubject<IUser | null>;
   }
 
 }

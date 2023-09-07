@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {UserService} from "../../service/UserService";
 import {HotToastService} from "@ngneat/hot-toast";
@@ -14,8 +14,8 @@ import {AuthService} from "../../service/AuthService";
 export class ProfileComponent implements OnInit{
   constructor(private router: Router,
               private userService:UserService,
-              private toast: HotToastService,
-              private authService: AuthService) {}
+              private authService: AuthService,
+  ) {}
 
   currentUser!: IUser;
   async ngOnInit(): Promise<void> {
@@ -32,15 +32,6 @@ export class ProfileComponent implements OnInit{
     })
 
   }
-  addToWatchlist(){
-    this.currentUser.watchList?.push(1337);
-    this.userService.updateUser(this.currentUser).then(() => {
-      this.toast.success('Added to watchlist!', {
-        duration: 3500
-      })
-    })
-  }
-
   logout() {
     this.authService.logout();
   }

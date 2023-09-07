@@ -1,6 +1,8 @@
-<p *ngIf="currentUser">
-    UID: {{currentUser.uid}} <br/>
-    watchList: {{currentUser.watchList}}
-  <button (click)="addToWatchlist()"> ADD TO WATCHLIST TEST</button>
-</p>
-<button (click)="logout()">Logout</button>
+<div class="container" *ngIf="currentUser">
+  <div class="userdata">
+    <p> UID: {{currentUser.uid}}</p>
+    <p> EMAIL: {{currentUser.email}}</p>
+    <p> WATCHLIST: {{currentUser.watchList}}</p>
+  </div>
+  <button (click)="logout()"> Logout </button>
+</div>
