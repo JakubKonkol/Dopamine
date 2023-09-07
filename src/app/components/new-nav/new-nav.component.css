@@ -99,3 +99,18 @@
     transform: rotate(360deg);
   }
 }
+.item-btn{
+  padding: 0.5rem 0.5rem;
+  color: var(--white);
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  margin-inline: auto;
+  font-size: 0.8rem;
+  border: 1px solid #191919;
+  border-radius: 5px;
+  background-color: var(--dark);
+}

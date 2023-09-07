@@ -29,6 +29,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
+import { ProfileDropdownComponent } from './components/profile-dropdown/profile-dropdown.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
     FeaturedComponent,
     SeriesPageComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfileDropdownComponent
   ],
   imports: [
     BrowserModule,

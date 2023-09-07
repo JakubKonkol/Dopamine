@@ -2,7 +2,11 @@
   <div class="userdata">
     <p> UID: {{currentUser.uid}}</p>
     <p> EMAIL: {{currentUser.email}}</p>
-    <p> WATCHLIST: {{currentUser.watchList}}</p>
+    <p> MOVIES WATCHLIST: {{currentUser.movieWatchList}}</p>
+    <p> SERIES WATCHLIST: {{currentUser.seriesWatchList}}</p>
+    <p> MOVIE HISTORY: {{currentUser.movieHistory}}</p>
+    <p> SERIES HISTORY: {{currentUser.seriesHistory}}</p>
+    <p> Playlist: <b *ngFor="let playlist of currentUser.playlists"> {{playlist.name}} </b></p>
   </div>
   <button (click)="logout()"> Logout </button>
 </div>

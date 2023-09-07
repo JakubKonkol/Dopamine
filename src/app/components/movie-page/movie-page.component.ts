@@ -6,6 +6,8 @@ import {HotToastService} from "@ngneat/hot-toast";
 import {toastConfig} from "../../tools/toastConfig";
 import {CastMember} from "../../model/helpers/CastMember";
 import {WatchProvider} from "../../model/helpers/WatchProvider";
+import {UserService} from "../../service/UserService";
+import {IUser} from "../../model/IUser";
 
 @Component({
   selector: 'app-movie-page',
@@ -19,7 +21,12 @@ export class MoviePageComponent implements OnInit{
   filteredCast!: CastMember[];
   watchProviders!: WatchProvider[];
   isWatchProvider:boolean = false;
-  constructor(private route: ActivatedRoute, private movieService: MovieService, private toast: HotToastService){}
+  user!: IUser;
+  constructor(private route: ActivatedRoute,
+              private movieService: MovieService,
+              private toast: HotToastService,
+              private userService: UserService
+  ){}
 
   async ngOnInit(): Promise<void> {
     this.movieId = this.route.snapshot.params['id'];
@@ -34,6 +41,18 @@ export class MoviePageComponent implements OnInit{
     if (this.watchProviders){
       this.isWatchProvider = true;
     }
+    this.userService.getCurrentUser$().subscribe(value => {
+      if(value == null){
+        return;
+      }
+      this.user = value;
+    })
+  }
+  async addToWatchList(){
+    this.user.movieWatchList?.push(this.movieId);
+    await this.userService.updateUser(this.user);
+    this.toast.success('Added!',
+      toastConfig)
   }
   getProviderLogo(provider: WatchProvider): string{
     return "https://image.tmdb.org/t/p/w500" + provider.logo_path;
@@ -62,8 +81,16 @@ export class MoviePageComponent implements OnInit{
     }
     return (number / 1000000).toFixed(1)+' M';
   }
-  test() {
-    this.toast.success('Added!',
-      toastConfig)
+
+  movieAlreadyInWatchList() {
+    return this.user.movieWatchList?.includes(this.movieId);
+  }
+
+  removeFromWatchlist() {
+    this.user.movieWatchList?.splice(this.user.movieWatchList.indexOf(this.movieId), 1);
+    this.userService.updateUser(this.user).then(
+      () => this.toast.success('Removed!',
+        toastConfig)
+    );
   }
 }

@@ -36,9 +36,13 @@ export class AuthService{
         this.toast.success('Registered successfully!', toastConfig)
         let user: IUser = {
           uid: userUID!,
+          username: email,
           email: email,
           movieHistory: [],
-          watchList: []
+          movieWatchList: [],
+          seriesHistory: [],
+          seriesWatchList: [],
+          playlists: []
         }
         await this.userService.saveNewUserWithUID(userUID!, user);
         this.router.navigate(['']).then();

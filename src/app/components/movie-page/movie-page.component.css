@@ -103,6 +103,17 @@ p{
   color: var(--darkest);
   cursor: pointer;
 }
+.remove-btn{
+  border: 1px solid indianred !important;
+  color: var(--white);
+}
+.remove-btn > svg{
+  fill: indianred;
+}
+.remove-btn:hover{
+  background-color: indianred !important;
+  color: var(--white);
+}
 .controls > button:hover svg{
   fill: var(--darkest);
 }

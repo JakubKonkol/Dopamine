@@ -1,7 +1,6 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {UserService} from "../../service/UserService";
-import {HotToastService} from "@ngneat/hot-toast";
 import {IUser} from "../../model/IUser";
 import {AuthService} from "../../service/AuthService";
 
