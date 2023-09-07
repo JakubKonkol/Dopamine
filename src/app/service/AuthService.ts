@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {HotToastService} from "@ngneat/hot-toast";
 import {toastConfig} from "../tools/toastConfig";
 import {UserService} from "./UserService";
+import {IUser} from "../model/IUser";
 
 @Injectable({
   providedIn: 'root'
@@ -33,7 +34,13 @@ export class AuthService{
         let userUID = await this.fireAuth.currentUser.then(value => value?.uid);
         localStorage.setItem('userUID', userUID!);
         this.toast.success('Registered successfully!', toastConfig)
-        await this.userService.saveNewUserWithUID(userUID!);
+        let user: IUser = {
+          uid: userUID!,
+          email: email,
+          movieHistory: [],
+          watchList: []
+        }
+        await this.userService.saveNewUserWithUID(userUID!, user);
         this.router.navigate(['']).then();
     }, err => {
       this.toast.error(err.message, {
@@ -47,5 +54,6 @@ export class AuthService{
       this.router.navigate(['login']).then()
     })
   }
+
 
 }
