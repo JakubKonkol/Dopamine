@@ -4,7 +4,7 @@ import {UserService} from "../../service/UserService";
 import {IUser} from "../../model/IUser";
 import {AuthService} from "../../service/AuthService";
 
-
+type ChipState = 'All' | 'Playlists' | 'Movie history' | 'TV Series history';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -15,7 +15,7 @@ export class ProfileComponent implements OnInit{
               private userService:UserService,
               private authService: AuthService,
   ) {}
-
+  chipState: ChipState = 'All';
   currentUser!: IUser;
   async ngOnInit(): Promise<void> {
     if (localStorage.getItem('userUID') == null) {
@@ -29,9 +29,19 @@ export class ProfileComponent implements OnInit{
       }
       this.currentUser = value;
     })
-
   }
+
   logout() {
     this.authService.logout();
+  }
+
+  isChipActive(all: string) {
+    if(this.chipState == all){
+      return 'chip active';
+    }
+    return 'chip';
+  }
+  setChipState(state: ChipState) {
+    this.chipState = state;
   }
 }

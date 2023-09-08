@@ -26,6 +26,30 @@
   --darkest-400: #779999;
   --darkest-300: #a4bcbb;
   --darkest-200: #c9d8d8;
+  --accent-50: #edfffa;
+  --accent-100: #c2fff3;
+  --accent-200: #86ffe9;
+  --accent-300: #42ffdd;
+  --accent-400: #0ef6cc;
+  --accent-500: #00d9b4;
+  --accent-600: #00af95;
+  --accent-700: #008b78;
+  --accent-800: #016e61;
+  --accent-900: #075a4f;
+  --accent-950: #003833;
+  --blue-50: #f5f7fa;
+  --blue-100: #e9eef5;
+  --blue-200: #cfdae8;
+  --blue-300: #a5bcd4;
+  --blue-400: #7499bc;
+  --blue-500: #5580aa;
+  --blue-600: #3f628a;
+  --blue-700: #345070;
+  --blue-800: #2e445e;
+  --blue-900: #2b3b4f;
+  --blue-950: #1c2635;
+
+
   --main-font: 'Roboto', sans-serif;
   --secondary-font: 'Montserrat', sans-serif;
   --other-font: 'Poppins', sans-serif;

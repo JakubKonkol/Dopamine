@@ -8,23 +8,34 @@
         <p class="card-subtitle"> HOURS </p>
       </div>
       <div class="card-item">
-        <p class="card-title"> TOTAL MOVIES </p>
-        <p class="card-value"> 69402 </p>
-        <p class="card-subtitle"> HOURS </p>
+        <p class="card-title"> MOVIES WATCHED </p>
+        <p class="card-value"> 69 </p>
+        <p class="card-subtitle"> 2 LAST WEEK </p>
       </div>
       <div class="card-item">
-        <p class="card-title"> WATCH TIME </p>
-        <p class="card-value"> 69402 </p>
-        <p class="card-subtitle"> HOURS </p>
+        <p class="card-title"> FAVOURITE GENRE </p>
+        <p class="card-value"> DRAMA </p>
+        <p class="card-subtitle">  </p>
       </div>
+    </div>
+    <div class="chips">
+      <p [className]="isChipActive('All')" (click)="setChipState('All')"> All </p>
+      <p [classList]="isChipActive('Playlists')" (click)="setChipState('Playlists')"> Playlists </p>
+      <p [classList]="isChipActive('Movie history')" (click)="setChipState('Movie history')"> Movie history </p>
+      <p [classList]="isChipActive('TV Series history')" (click)="setChipState('TV Series history')"> TV Series history </p>
     </div>
   </div>
   <div class="right">
     <div class="profile-info">
     <p class="section-title"> Your profile</p>
-      <p> Username: {{currentUser.username}}</p>
-      <p> Email: {{currentUser.email}}</p>
-      <button class="button-primary primary-red" (click)="logout()"> logout </button>
+      <div class="profile-details">
+        <p> Username: {{currentUser.username}}</p>
+        <p> Email: {{currentUser.email}}</p>
+      </div>
+      <div class="controls">
+        <button class="button-primary primary-red"> Edit </button>
+        <button class="button-primary primary-red" (click)="logout()"> logout </button>
+      </div>
     </div>
   </div>
 </div>
