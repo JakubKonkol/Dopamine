@@ -1,12 +1,30 @@
 <div class="container" *ngIf="currentUser">
-  <div class="userdata">
-    <p> UID: {{currentUser.uid}}</p>
-    <p> EMAIL: {{currentUser.email}}</p>
-    <p> MOVIES WATCHLIST: {{currentUser.movieWatchList}}</p>
-    <p> SERIES WATCHLIST: {{currentUser.seriesWatchList}}</p>
-    <p> MOVIE HISTORY: {{currentUser.movieHistory}}</p>
-    <p> SERIES HISTORY: {{currentUser.seriesHistory}}</p>
-    <p> Playlist: <b *ngFor="let playlist of currentUser.playlists"> {{playlist.name}} </b></p>
+  <div class="left">
+    <p class="section-title"> Profile overview</p>
+    <div class="overview-card">
+      <div class="card-item">
+        <p class="card-title"> WATCH TIME </p>
+        <p class="card-value"> 69402 </p>
+        <p class="card-subtitle"> HOURS </p>
+      </div>
+      <div class="card-item">
+        <p class="card-title"> TOTAL MOVIES </p>
+        <p class="card-value"> 69402 </p>
+        <p class="card-subtitle"> HOURS </p>
+      </div>
+      <div class="card-item">
+        <p class="card-title"> WATCH TIME </p>
+        <p class="card-value"> 69402 </p>
+        <p class="card-subtitle"> HOURS </p>
+      </div>
+    </div>
   </div>
-  <button (click)="logout()"> Logout </button>
+  <div class="right">
+    <div class="profile-info">
+    <p class="section-title"> Your profile</p>
+      <p> Username: {{currentUser.username}}</p>
+      <p> Email: {{currentUser.email}}</p>
+      <button class="button-primary primary-red" (click)="logout()"> logout </button>
+    </div>
+  </div>
 </div>

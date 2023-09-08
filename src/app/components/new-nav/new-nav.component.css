@@ -21,7 +21,9 @@
     align-items: center;
     gap: 10px;
 }
-
+.welcome-text p{
+  text-shadow: var(--title-text-shadow);
+}
 .items {
     color: white;
     display: flex;

@@ -81,29 +81,6 @@ p{
   justify-content: center;
   gap: 1rem;
 }
-.controls > button{
-  padding: 1rem 1.5rem;
-  letter-spacing: 0.15rem;
-  text-transform: uppercase;
-  border: 1px solid var(--light);
-  background-color: transparent;
-  color: var(--white);
-  box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
-  text-align: center;
-  border-radius: 4px;
-
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.controls > button:hover{
-  background-color: var(--light);
-  color: var(--darkest);
-  cursor: pointer;
-}
-.controls > button:hover svg{
-  fill: var(--darkest);
-}
 .section{
   background-color: var(--darkest);
   padding: 1.2rem;
@@ -221,15 +198,4 @@ p{
     width: 100%;
     justify-content: center;
   }
-}
-.remove-btn{
-  border: 1px solid indianred !important;
-  color: var(--white);
-}
-.remove-btn > svg{
-  fill: indianred;
-}
-.remove-btn:hover{
-  background-color: indianred !important;
-  color: var(--white);
 }

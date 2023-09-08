@@ -1,17 +1,100 @@
-/* You can add global styles to this file, and also import other style files */
 :root{
   --darkest: #1B2223;
   --dark: #3A4F50;
   --light: #0EF6CC;
   --white: #F4FEFD;
+  --black: #191919;
+  --gray-dark: #777777;
+  --gray-medium: #AAAAAA;
+  --gray-light: #CCCCCC;
+  --blue-dark: #004466;
+  --blue-light: #66CCFF;
+  --blue-medium: #5580aa;
+  --blue-text: #98cced;
+  --green-dark: #006633;
+  --green-light: #99FFCC;
+  --red-dark: #990000;
+  --red-medium: #cd4449;
+  --red-light: #FF6666;
+  --orange-dark: #FF6600;
+  --orange-light: #FFCC99;
+  --darkest-900: #364143;
+  --darkest-800: #3d4c4d;
+  --darkest-700: #44585a;
+  --darkest-600: #4f696b;
+  --darkest-500: #5c7e7e;
+  --darkest-400: #779999;
+  --darkest-300: #a4bcbb;
+  --darkest-200: #c9d8d8;
   --main-font: 'Roboto', sans-serif;
   --secondary-font: 'Montserrat', sans-serif;
   --other-font: 'Poppins', sans-serif;
+  --title-text-shadow: 0 0 50px hsla(0, 0%, 0%, 0.4);
 }
 *{
   margin: 0;
   font-family: var(--other-font);
+  letter-spacing: 0.05em;
 }
 body{
   background-color: var(--dark);
+}
+.button-big{
+  padding: 1rem 1.5rem;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  border: 1px solid var(--light);
+  background-color: transparent;
+  color: var(--white);
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+  text-align: center;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: 0.3s ease-in-out;
+}
+.button-big svg{
+  transition: 0.3s ease-in-out;
+}
+.button-big:hover svg{
+  fill: var(--darkest);
+}
+.button-big:hover{
+  background-color: var(--light);
+  color: var(--darkest);
+  cursor: pointer;
+}
+.red{
+  border: 1px solid var(--red-light);
+}
+.red:hover {
+  background-color: var(--red-light);
+  color: var(--darkest);
+  cursor: pointer;
+}
+.red svg{
+  fill: var(--red-light);
+}
+.button-primary{
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+}
+.primary-red{
+  background-color: var(--red-medium);
+  color: var(--white);
+}
+.primary-red:hover{
+  background-color: var(--red-light);
+  color: var(--darkest);
+  cursor: pointer;
+}
+.button-secondary{
+
 }
