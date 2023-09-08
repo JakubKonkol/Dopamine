@@ -42,7 +42,8 @@ export class AuthService{
           movieWatchList: [],
           seriesHistory: [],
           seriesWatchList: [],
-          playlists: []
+          playlists: [],
+          creationDate: new Date().toLocaleDateString()
         }
         await this.userService.saveNewUserWithUID(userUID!, user);
         this.router.navigate(['']).then();
