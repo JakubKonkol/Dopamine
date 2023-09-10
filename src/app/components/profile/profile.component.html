@@ -23,6 +23,14 @@
       <p [classList]="isChipActive('TV Series history')" (click)="setChipState('TV Series history')"> TV Series history </p>
       <p [classList]="isChipActive('Playlists')" (click)="setChipState('Playlists')"> Playlists </p>
     </div>
+<!--    MOVIE HISTORY-->
+    <div class="left-content" *ngIf="chipState == 'Movie history' && userMoviesHistory">
+      <app-movie-card
+        *ngFor="let movie of  userMoviesHistory"
+        [movie]="movie"
+
+        />
+    </div>
   </div>
   <div class="right">
     <div class="profile-info">

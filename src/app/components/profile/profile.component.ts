@@ -4,6 +4,7 @@ import {UserService} from "../../service/UserService";
 import {IUser} from "../../model/IUser";
 import {AuthService} from "../../service/AuthService";
 import {MovieService} from "../../service/MovieService";
+import {Movie} from "../../model/Movie";
 
 type ChipState = 'All' | 'Playlists' | 'Movie history' | 'TV Series history';
 @Component({
@@ -22,6 +23,7 @@ export class ProfileComponent implements OnInit{
   userWatchTime!: number;
   userMoviesWatched!: number;
   favGenre!: string;
+  userMoviesHistory: Movie[] = [];
   async ngOnInit(): Promise<void> {
     if (localStorage.getItem('userUID') == null) {
       this.router.navigate(['login']).then();
@@ -35,9 +37,22 @@ export class ProfileComponent implements OnInit{
        this.currentUser = value;
        this.userWatchTime = await this.getUserWatchTime();
        this.userMoviesWatched = this.currentUser.movieHistory?.length ?? 0;
-        this.favGenre = await this.getFavGenre();
+       this.favGenre = await this.getFavGenre();
+       this.userMoviesHistory = await this.getMovieHistoryAsArrayOfObjects();
+       console.log(this.userMoviesHistory);
+
      })
 
+  }
+  async getMovieHistoryAsArrayOfObjects(): Promise<Movie[]>{
+    if(this.currentUser.movieHistory == null) return [];
+    let movieHistory: Movie[] = [];
+    for(let movieId of this.currentUser.movieHistory){
+      await this.movieService.getMovieById(movieId).then(value => {
+        movieHistory.push(value);
+      })
+    }
+    return movieHistory;
   }
   async getFavGenre(): Promise<string> {
     if (!this.currentUser || !this.currentUser.movieHistory) return '';

@@ -1,0 +1,76 @@
+.container{
+  margin: 0 auto;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  border-radius: 10px;
+  background-color: var(--blue-300);
+  height: 147px;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+}
+.left{
+
+}
+.right{
+  margin-left: 10px;
+  flex: 1;
+  height: 148px;
+  position: relative;
+}
+.movie-image{
+  height: 147px;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  display: block;
+  object-fit: cover;
+}
+.title{
+  margin-top: 15px;
+  font-family: "Proxima soft", sans-serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--blue-950);
+}
+.subtitle{
+  margin-top: 5px;
+  font-family: "Proxima soft", sans-serif;
+  font-size: 0.8rem;
+  color: var(--blue-900);
+}
+.tagline{
+  margin-top: 10px;
+  font-family: "Proxima soft", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--blue-800);
+}
+.buttons{
+  position: absolute;
+  bottom: 0;
+  right: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  justify-content: space-between;
+  width: 100%;
+
+}
+.blue{
+  background-color: var(--blue-600);
+  color: var(--white);
+  font-weight: 500;
+}
+.blue:hover{
+  background-color: var(--blue-700);
+  cursor: pointer;
+}
+.text-button{
+  background-color: transparent;
+  color: var(--blue-900);
+  font-weight: 700;
+  border: none;
+}
+.text-button:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}

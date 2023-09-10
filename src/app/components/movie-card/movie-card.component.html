@@ -1,0 +1,15 @@
+<div class="container" *ngIf="movie">
+  <div class="left">
+    <img src="{{movie.poster_path}}" alt="{{movie.title}}" class="movie-image">
+  </div>
+  <div class="right">
+    <p class="title"> {{movie.title}}</p>
+    <p class="subtitle"> {{movie.genres[0].name}}</p>
+    <p class="tagline"> {{movie.tagline}}</p>
+
+    <div class="buttons">
+      <button class="text-button" >Remove From History</button>
+      <button class="button-primary blue" >Details</button>
+    </div>
+  </div>
+</div>
