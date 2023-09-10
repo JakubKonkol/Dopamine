@@ -4,25 +4,24 @@
     <div class="overview-card">
       <div class="card-item">
         <p class="card-title"> WATCH TIME </p>
-        <p class="card-value"> 69402 </p>
+        <p class="card-value"> {{userWatchTime}} </p>
         <p class="card-subtitle"> HOURS </p>
       </div>
       <div class="card-item">
         <p class="card-title"> MOVIES WATCHED </p>
-        <p class="card-value"> 69 </p>
+        <p class="card-value"> {{userMoviesWatched}} </p>
         <p class="card-subtitle"> 2 LAST WEEK </p>
       </div>
       <div class="card-item">
         <p class="card-title"> FAVOURITE GENRE </p>
-        <p class="card-value"> DRAMA </p>
+        <p class="card-value"> {{favGenre}} </p>
         <p class="card-subtitle">  </p>
       </div>
     </div>
     <div class="chips">
-      <p [className]="isChipActive('All')" (click)="setChipState('All')"> All </p>
-      <p [classList]="isChipActive('Playlists')" (click)="setChipState('Playlists')"> Playlists </p>
       <p [classList]="isChipActive('Movie history')" (click)="setChipState('Movie history')"> Movie history </p>
       <p [classList]="isChipActive('TV Series history')" (click)="setChipState('TV Series history')"> TV Series history </p>
+      <p [classList]="isChipActive('Playlists')" (click)="setChipState('Playlists')"> Playlists </p>
     </div>
   </div>
   <div class="right">

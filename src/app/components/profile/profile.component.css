@@ -37,7 +37,7 @@
 .overview-card > *{
   flex-basis: 33%;
   padding: 1rem;
-  border-right: 1px solid var(--gray-light)
+  border-right: 1px solid var(--blue-text)
 }
 .overview-card > *:last-child{
   border-right: none;
@@ -55,6 +55,7 @@
   margin-bottom: 0.5rem;
   letter-spacing: 0.15em;
   font-weight: 500;
+  text-transform: uppercase;
 }
 .card-subtitle{
   font-size: 0.6rem;
