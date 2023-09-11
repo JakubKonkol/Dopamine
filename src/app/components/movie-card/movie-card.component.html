@@ -1,11 +1,16 @@
-<div class="container" *ngIf="movie">
+<div class="container" *ngIf="movie || serie">
   <div class="left">
-    <img src="{{movie.poster_path}}" alt="{{movie.title}}" class="movie-image">
+    <img src="{{movie.poster_path}}" alt="{{movie.title}}" class="movie-image" *ngIf="type=='movie'">
+    <img src="{{getSeriePosterUrl()}}" alt="{{serie.name}}" class="movie-image" *ngIf="type=='tv'">
   </div>
   <div class="right">
-    <p class="title"> {{movie.title}}</p>
-    <p class="subtitle"> {{movie.genres[0].name}}</p>
-    <p class="tagline"> {{movie.tagline}}</p>
+    <p class="title" *ngIf="type=='movie'"> {{movie.title}}</p>
+    <p class="subtitle" *ngIf="type=='movie'" > {{movie.genres[0].name}}</p>
+    <p class="tagline" *ngIf="type=='movie'"> {{movie.tagline}}</p>
+
+    <p class="title" *ngIf="type=='tv'"> {{serie.name}}</p>
+    <p class="subtitle" *ngIf="type=='tv'" > {{serie.genres[0].name}}</p>
+    <p class="tagline" *ngIf="type=='tv'"> {{serie.tagline}}</p>
 
     <div class="buttons">
       <button class="text-button" >Remove From History</button>

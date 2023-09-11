@@ -28,8 +28,15 @@
       <app-movie-card
         *ngFor="let movie of  userMoviesHistory"
         [movie]="movie"
-
+        type="movie"
         />
+    </div>
+    <div class="left-content" *ngIf="chipState == 'TV Series history' && userSeriesHistory">
+      <app-movie-card
+        *ngFor="let serie of userSeriesHistory"
+        [serie]="serie"
+        type="tv"
+      />
     </div>
   </div>
   <div class="right">

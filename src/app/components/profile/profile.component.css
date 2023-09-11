@@ -7,7 +7,7 @@
 .left{
   flex-basis: 75%;
   padding: 1rem;
-  height: 80vh;
+  min-height: 80vh;
   background-color: var(--darkest-600);
   border-radius: 4px;
   box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
@@ -16,7 +16,7 @@
   border-radius: 4px;
   padding: 1rem;
   flex-basis: 25%;
-  height: 80vh;
+  min-height: 80vh;
   background-color: var(--darkest-600);
   box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
 }

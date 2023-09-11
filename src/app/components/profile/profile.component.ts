@@ -5,6 +5,8 @@ import {IUser} from "../../model/IUser";
 import {AuthService} from "../../service/AuthService";
 import {MovieService} from "../../service/MovieService";
 import {Movie} from "../../model/Movie";
+import {TVSeries} from "../../model/TVSeries";
+import {TVSeriesService} from "../../service/TVSeriesService";
 
 type ChipState = 'All' | 'Playlists' | 'Movie history' | 'TV Series history';
 @Component({
@@ -16,7 +18,8 @@ export class ProfileComponent implements OnInit{
   constructor(private router: Router,
               private userService:UserService,
               private authService: AuthService,
-              private movieService: MovieService
+              private movieService: MovieService,
+              private tvSeriesService: TVSeriesService
   ) {}
   chipState: ChipState = 'Movie history';
   currentUser!: IUser;
@@ -24,6 +27,7 @@ export class ProfileComponent implements OnInit{
   userMoviesWatched!: number;
   favGenre!: string;
   userMoviesHistory: Movie[] = [];
+  userSeriesHistory: TVSeries[] = [];
   async ngOnInit(): Promise<void> {
     if (localStorage.getItem('userUID') == null) {
       this.router.navigate(['login']).then();
@@ -39,7 +43,8 @@ export class ProfileComponent implements OnInit{
        this.userMoviesWatched = this.currentUser.movieHistory?.length ?? 0;
        this.favGenre = await this.getFavGenre();
        this.userMoviesHistory = await this.getMovieHistoryAsArrayOfObjects();
-       console.log(this.userMoviesHistory);
+        this.userSeriesHistory = await this.getSeriesHistoryAsArrayOfObjects();
+        console.log(this.userSeriesHistory)
 
      })
 
@@ -53,6 +58,16 @@ export class ProfileComponent implements OnInit{
       })
     }
     return movieHistory;
+  }
+  async getSeriesHistoryAsArrayOfObjects(): Promise<TVSeries[]>{
+    if(this.currentUser.seriesHistory == null) return [];
+    let seriesHistory: TVSeries[] = [];
+    for(let seriesId of this.currentUser.seriesHistory){
+      await this.tvSeriesService.getSeriesById(seriesId).then(value => {
+        seriesHistory.push(value);
+      })
+    }
+    return seriesHistory;
   }
   async getFavGenre(): Promise<string> {
     if (!this.currentUser || !this.currentUser.movieHistory) return '';
