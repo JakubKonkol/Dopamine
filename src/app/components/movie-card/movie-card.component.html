@@ -13,8 +13,8 @@
     <p class="tagline" *ngIf="type=='tv'"> {{serie.tagline}}</p>
 
     <div class="buttons">
-      <button class="text-button" >Remove From History</button>
-      <button class="button-primary blue" >Details</button>
+      <button class="text-button" (click)="removeFromHistoryEmit()">Remove From History</button>
+      <button class="button-primary blue" (click)="gotoDetailsEmit()" >Details</button>
     </div>
   </div>
 </div>

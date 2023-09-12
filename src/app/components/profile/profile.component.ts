@@ -7,6 +7,7 @@ import {MovieService} from "../../service/MovieService";
 import {Movie} from "../../model/Movie";
 import {TVSeries} from "../../model/TVSeries";
 import {TVSeriesService} from "../../service/TVSeriesService";
+import {HotToastService} from "@ngneat/hot-toast";
 
 type ChipState = 'All' | 'Playlists' | 'Movie history' | 'TV Series history';
 @Component({
@@ -19,7 +20,8 @@ export class ProfileComponent implements OnInit{
               private userService:UserService,
               private authService: AuthService,
               private movieService: MovieService,
-              private tvSeriesService: TVSeriesService
+              private tvSeriesService: TVSeriesService,
+              private toast: HotToastService
   ) {}
   chipState: ChipState = 'Movie history';
   currentUser!: IUser;
@@ -43,11 +45,31 @@ export class ProfileComponent implements OnInit{
        this.userMoviesWatched = this.currentUser.movieHistory?.length ?? 0;
        this.favGenre = await this.getFavGenre();
        this.userMoviesHistory = await this.getMovieHistoryAsArrayOfObjects();
-        this.userSeriesHistory = await this.getSeriesHistoryAsArrayOfObjects();
-        console.log(this.userSeriesHistory)
+       this.userSeriesHistory = await this.getSeriesHistoryAsArrayOfObjects();
 
      })
 
+  }
+  gotoDetails(id: number, type: string){
+    if (type == 'movie') {
+      this.router.navigate(['movie', id]).then();
+    } else {
+      this.router.navigate(['series', id]).then();
+    }
+  }
+  removeSeriesFromHistory(seriesId: number){
+    console.log(seriesId)
+    this.currentUser.seriesHistory?.splice(this.currentUser.seriesHistory.indexOf(seriesId), 1);
+    this.userService.updateUser(this.currentUser).then(r => {
+      this.toast.success('Removed!');
+    });
+  }
+  removeMovieFromHistory(movieId: number){
+    console.log(movieId)
+    this.currentUser.movieHistory?.splice(this.currentUser.movieHistory.indexOf(movieId), 1);
+    this.userService.updateUser(this.currentUser).then(r => {
+      this.toast.success('Removed!');
+    });
   }
   async getMovieHistoryAsArrayOfObjects(): Promise<Movie[]>{
     if(this.currentUser.movieHistory == null) return [];

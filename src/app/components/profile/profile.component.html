@@ -29,6 +29,8 @@
         *ngFor="let movie of  userMoviesHistory"
         [movie]="movie"
         type="movie"
+        (removeFromHistory)="removeMovieFromHistory(movie.id)"
+        (gotoDetails)="gotoDetails(movie.id, 'movie')"
         />
     </div>
     <div class="left-content" *ngIf="chipState == 'TV Series history' && userSeriesHistory">
@@ -36,7 +38,9 @@
         *ngFor="let serie of userSeriesHistory"
         [serie]="serie"
         type="tv"
-      />
+        (removeFromHistory)="removeSeriesFromHistory(serie.id)"
+        (gotoDetails)="gotoDetails(serie.id, 'tv')"
+      />S
     </div>
   </div>
   <div class="right">
