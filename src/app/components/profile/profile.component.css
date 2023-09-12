@@ -100,6 +100,48 @@
   gap: 1rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+.playlist-card{
+  display: flex;
+  flex-direction: row;
+  background-color: var(--blue-300);
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+  transition: 0.2s ease-in-out;
+  padding: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.playlist-info{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 
+}
+.playlist-delete-btn{
+  background-color: transparent;
+  border: none;
+}
+.playlist-delete-btn:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.playlist-delete-btn > svg{
+  fill: var(--blue-900)
+}
+.playlist-title{
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--blue-900);
+  letter-spacing: 0.1em;
+}
+.playlist-info-item{
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--blue-700);
+  letter-spacing: 0.05em;
+}
+.playlist-card:hover{
+  transform: scale(1.02);
 }
 

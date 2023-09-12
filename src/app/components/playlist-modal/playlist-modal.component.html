@@ -9,8 +9,8 @@
       <div class="playlist-view" *ngFor="let playlist of user.playlists" (click)="addToPlaylist(playlist)">
         <p class="playlist-name"> {{playlist.name}}</p>
         <div class="right">
-          <p> movies: {{playlist.movies.length}}</p>
-          <p> series: {{playlist.series.length}}</p>
+          <p>{{playlist.movies.length}} movies, </p>
+          <p>{{playlist.series.length}} series</p>
         </div>
       </div>
     </div>
@@ -23,6 +23,7 @@
 
 
   <div class="create-new-playlist-modal" *ngIf="addingNew">
+    <p class="title">Enter name for your playlist</p>
     <input type="text" class="input-name" placeholder="Playlist name" [(ngModel)]="newPlaylistName">
     <div class="btns">
       <button class="text-button" (click)="toggleAddingNew()">Close</button>

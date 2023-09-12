@@ -8,6 +8,7 @@ import {Movie} from "../../model/Movie";
 import {TVSeries} from "../../model/TVSeries";
 import {TVSeriesService} from "../../service/TVSeriesService";
 import {HotToastService} from "@ngneat/hot-toast";
+import {Playlist} from "../../model/Playlist";
 
 type ChipState = 'All' | 'Playlists' | 'Movie history' | 'TV Series history';
 @Component({
@@ -30,6 +31,7 @@ export class ProfileComponent implements OnInit{
   favGenre!: string;
   userMoviesHistory: Movie[] = [];
   userSeriesHistory: TVSeries[] = [];
+  userPlaylists: Playlist[] = [];
   async ngOnInit(): Promise<void> {
     if (localStorage.getItem('userUID') == null) {
       this.router.navigate(['login']).then();
@@ -44,11 +46,25 @@ export class ProfileComponent implements OnInit{
        this.userWatchTime = await this.getUserWatchTime();
        this.userMoviesWatched = this.currentUser.movieHistory?.length ?? 0;
        this.favGenre = await this.getFavGenre();
+       this.userPlaylists = this.getUserPlaylists();
        this.userMoviesHistory = await this.getMovieHistoryAsArrayOfObjects();
        this.userSeriesHistory = await this.getSeriesHistoryAsArrayOfObjects();
 
      })
 
+  }
+  deletePlaylist(playlist: Playlist){
+   this.currentUser.playlists?.forEach((value, index) => {
+     if(value.name == playlist.name){
+       this.currentUser.playlists?.splice(index, 1);
+     }
+   })
+    this.userService.updateUser(this.currentUser).then(r => {
+      this.toast.success('Playlist Removed!');
+    })
+  }
+  getUserPlaylists(){
+    return this.currentUser.playlists ?? [];
   }
   gotoDetails(id: number, type: string){
     if (type == 'movie') {
