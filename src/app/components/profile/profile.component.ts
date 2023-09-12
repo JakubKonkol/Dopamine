@@ -59,14 +59,22 @@ export class ProfileComponent implements OnInit{
   }
   removeSeriesFromHistory(seriesId: number){
     console.log(seriesId)
-    this.currentUser.seriesHistory?.splice(this.currentUser.seriesHistory.indexOf(seriesId), 1);
+   this.currentUser.seriesHistory?.forEach((value, index) => {
+      if(value == seriesId){
+        this.currentUser.seriesHistory?.splice(index, 1);
+      }
+   })
     this.userService.updateUser(this.currentUser).then(r => {
       this.toast.success('Removed!');
     });
   }
   removeMovieFromHistory(movieId: number){
     console.log(movieId)
-    this.currentUser.movieHistory?.splice(this.currentUser.movieHistory.indexOf(movieId), 1);
+    this.currentUser.movieHistory?.forEach((value, index) => {
+      if(value == movieId){
+        this.currentUser.movieHistory?.splice(index, 1);
+      }
+    })
     this.userService.updateUser(this.currentUser).then(r => {
       this.toast.success('Removed!');
     });
