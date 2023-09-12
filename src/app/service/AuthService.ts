@@ -33,10 +33,11 @@ export class AuthService{
     this.fireAuth.createUserWithEmailAndPassword(email, password).then(async () => {
         let userUID = await this.fireAuth.currentUser.then(value => value?.uid);
         localStorage.setItem('userUID', userUID!);
+        let username = email.split('@')[0];
         this.toast.success('Registered successfully!', toastConfig)
         let user: IUser = {
           uid: userUID!,
-          username: email,
+          username: username,
           email: email,
           movieHistory: [],
           movieWatchList: [],

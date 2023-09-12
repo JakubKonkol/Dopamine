@@ -144,6 +144,9 @@ export class ProfileComponent implements OnInit{
 
     return (watchTime/60).toFixed(1) as unknown as number;
   }
+  getUserSeriesWatched(){
+    return this.currentUser.seriesHistory?.length ?? 0;
+  }
 
 
   logout() {

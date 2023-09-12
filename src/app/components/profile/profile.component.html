@@ -1,6 +1,6 @@
 <div class="container" *ngIf="currentUser">
   <div class="left">
-    <p class="section-title"> Profile overview</p>
+    <p class="section-title"> Profile Overview</p>
     <div class="overview-card">
       <div class="card-item">
         <p class="card-title"> WATCH TIME </p>
@@ -10,7 +10,8 @@
       <div class="card-item">
         <p class="card-title"> MOVIES WATCHED </p>
         <p class="card-value"> {{userMoviesWatched}} </p>
-        <p class="card-subtitle"> 2 LAST WEEK </p>
+        <p class="card-subtitle" *ngIf="getUserSeriesWatched() == 1"> and {{getUserSeriesWatched()}} tv show </p>
+        <p class="card-subtitle" *ngIf="getUserSeriesWatched() > 1"> and {{getUserSeriesWatched()}} tv shows </p>
       </div>
       <div class="card-item">
         <p class="card-title"> FAVOURITE GENRE </p>
@@ -49,9 +50,10 @@
       <div class="profile-details">
         <p> Username: {{currentUser.username}}</p>
         <p> Email: {{currentUser.email}}</p>
+        <p> Member since: {{currentUser.creationDate}}</p>
       </div>
       <div class="controls">
-        <button class="button-primary primary-red"> Edit </button>
+<!--        <button class="button-primary primary-red"> Edit </button>-->
         <button class="button-primary primary-red" (click)="logout()"> logout </button>
       </div>
     </div>
