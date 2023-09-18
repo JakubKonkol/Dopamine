@@ -38,6 +38,7 @@ export class PlaylistModalComponent implements OnInit {
   createNewPlaylist(){
     if(this.newPlaylistName == '') return
     this.user.playlists?.push({
+      id: this.user.playlists.length+1,
       name: this.newPlaylistName,
       movies: [],
       series: []

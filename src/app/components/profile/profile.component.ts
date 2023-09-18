@@ -53,6 +53,9 @@ export class ProfileComponent implements OnInit{
      })
 
   }
+  gotoPlaylist(playlist: Playlist){
+    this.router.navigate(['playlist', playlist.id]).then();
+  }
   deletePlaylist(playlist: Playlist){
    this.currentUser.playlists?.forEach((value, index) => {
      if(value.name == playlist.name){

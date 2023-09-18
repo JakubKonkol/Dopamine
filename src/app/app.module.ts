@@ -32,6 +32,7 @@ import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 import { ProfileDropdownComponent } from './components/profile-dropdown/profile-dropdown.component';
 import { PlaylistModalComponent } from './components/playlist-modal/playlist-modal.component';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
+import { PlaylistViewComponent } from './components/playlist-view/playlist-view.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { MovieCardComponent } from './components/movie-card/movie-card.component
     RegisterComponent,
     ProfileDropdownComponent,
     PlaylistModalComponent,
-    MovieCardComponent
+    MovieCardComponent,
+    PlaylistViewComponent
   ],
   imports: [
     BrowserModule,

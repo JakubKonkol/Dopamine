@@ -7,6 +7,7 @@ import {SearchPageComponent} from "./components/search-page/search-page.componen
 import {SeriesPageComponent} from "./components/series-page/series-page.component";
 import {LoginComponent} from "./components/login/login.component";
 import {RegisterComponent} from "./components/register/register.component";
+import {PlaylistViewComponent} from "./components/playlist-view/playlist-view.component";
 
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: "tv/:id", component: SeriesPageComponent},
   {path: "search/:query", component: SearchPageComponent},
   { path: "login", component: LoginComponent},
-  { path: "register", component: RegisterComponent}
+  { path: "register", component: RegisterComponent},
+  { path: "playlist/:playlist_id", component: PlaylistViewComponent}
 ];
 
 @NgModule({
