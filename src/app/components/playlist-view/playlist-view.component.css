@@ -1,0 +1,69 @@
+.container{
+  width: 80%;
+  height: 100vh;
+  margin-inline: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--blue-300);
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+}
+.playlist-title-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: var(--blue-400);
+  border-radius: 4px;
+  height: 10rem;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+}
+.playlist-title{
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--blue-950)
+}
+.playlist-info{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+.chips{
+  display: flex;
+  gap: 1rem;
+}
+.chip{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0.5rem;
+  background-color: var(--blue-900);
+  border-radius: 15px;
+}
+.chip > p{
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--blue-400);
+}
+.chip > svg{
+  fill: var(--blue-400);
+}
+.playlist-delete-btn{
+  background-color: transparent;
+  border: none;
+}
+.playlist-delete-btn:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.playlist-delete-btn > svg{
+  fill: var(--blue-900)
+}

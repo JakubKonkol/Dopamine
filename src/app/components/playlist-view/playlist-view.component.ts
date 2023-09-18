@@ -39,4 +39,7 @@ export class PlaylistViewComponent implements OnInit {
     })
   }
 
+  deletePlaylist(playlist: Playlist) {
+
+  }
 }
