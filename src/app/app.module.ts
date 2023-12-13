@@ -33,6 +33,9 @@ import { ProfileDropdownComponent } from './components/profile-dropdown/profile-
 import { PlaylistModalComponent } from './components/playlist-modal/playlist-modal.component';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { PlaylistViewComponent } from './components/playlist-view/playlist-view.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule} from "@angular/material/icon";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -65,7 +68,10 @@ import { PlaylistViewComponent } from './components/playlist-view/playlist-view.
     HotToastModule.forRoot(),
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [
       MovieService,

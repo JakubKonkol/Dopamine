@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Escapix": {
+    "Dopamine": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/escapix",
+            "outputPath": "dist/dopamine",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -25,6 +25,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/custom-theme.scss",
               "node_modules/@ngneat/hot-toast/src/styles/styles.css",
               "src/styles.css"
             ],
@@ -61,10 +62,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Escapix:build:production"
+              "browserTarget": "Dopamine:build:production"
             },
             "development": {
-              "browserTarget": "Escapix:build:development"
+              "browserTarget": "Dopamine:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -72,7 +73,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Escapix:build"
+            "browserTarget": "Dopamine:build"
           }
         },
         "test": {
@@ -97,7 +98,7 @@
           "builder": "@angular/fire:deploy",
           "options": {
             "version": 2,
-            "browserTarget": "Escapix:build:production"
+            "browserTarget": "Dopamine:build:production"
           }
         }
       }
