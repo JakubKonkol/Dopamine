@@ -9,7 +9,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--darkest);
+    background-color: var(--color-950);
     padding: 10px;
 }
 
@@ -64,7 +64,7 @@
 
 
 .navbar-item:hover {
-    background-color: var(--dark);
+    background-color: var(--color-800);
     cursor: pointer;
     color:black;
 }
@@ -103,7 +103,7 @@
 }
 .item-btn{
   padding: 0.5rem 0.5rem;
-  color: var(--white);
+  color: var(--color-50);
   list-style: none;
   display: flex;
   justify-content: center;
@@ -114,5 +114,5 @@
   font-size: 0.8rem;
   border: 1px solid #191919;
   border-radius: 5px;
-  background-color: var(--dark);
+  background-color: var(--color-800);
 }

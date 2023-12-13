@@ -13,7 +13,7 @@
 .container{
   width: 60vw;
   height: 50vh;
-  background-color: var(--blue-200);
+  background-color: var(--color-600);
   border-radius: 5px;
   padding: 1rem;
   position: relative;
@@ -28,7 +28,7 @@
   align-items: center;
   padding: 0.4rem;
   border-radius: 4px;
-  background-color: var(--blue-100);
+  background-color: var(--color-300);
   gap: 0.5rem;
 }
 .search-field{
@@ -42,7 +42,7 @@
   margin-bottom: 10px;
   font-weight: 600;
   font-size: 1.5rem;
-  color: var(--blue-900)
+  color: var(--color-900)
 }
 .playlist-container{
   width: 100%;
@@ -59,11 +59,11 @@
   padding: 0.5rem;
 }
 .blue{
-  background-color: var(--blue-500);
-  color: var(--blue-50)
+  background-color: var(--color-500);
+  color: var(--color-50)
 }
 .blue:hover{
-  background-color: var(--blue-700);
+  background-color: var(--color-700);
   cursor: pointer;
 }
 .playlist-view{
@@ -81,7 +81,7 @@
   margin-right: 0.5rem;
 }
 .right > p{
-  color: var(--blue-700);
+  color: var(--color-700);
   font-size: 1rem;
   font-weight: 600;
 }
@@ -89,17 +89,17 @@
   margin-left: 0.5rem;
   font-size: 1.3rem;
   font-weight: 600;
-  color: var(--blue-900)
+  color: var(--color-900)
 }
 
 .playlist-view:hover{
-  background-color: var(--blue-300);
+  background-color: var(--color-300);
   border-radius: 4px;
   cursor: pointer;
 }
 .text-button{
   background-color: transparent;
-  color: var(--blue-900);
+  color: var(--color-900);
   font-weight: 700;
   border: none;
   font-size: 1rem;
@@ -116,7 +116,7 @@
   padding: 1rem;
   align-items: center;
   position: absolute;
-  background-color: var(--blue-300);
+  background-color: var(--color-300);
   border-radius: 10px;
 }
 .input-name{

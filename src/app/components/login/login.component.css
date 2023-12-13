@@ -8,8 +8,8 @@
   margin-inline: auto;
   padding: 3rem;
   border-radius: 10px;
-  box-shadow: 0 0 10px 0 var(--darkest);
-  background-color: var(--darkest);
+  box-shadow: 0 0 10px 0 var(--color-950);
+  background-color: var(--color-950);
 }
 .form-field{
   display: flex;
@@ -18,13 +18,13 @@
   gap: 0.4em;
   padding: 0.8rem;
   border-radius: 0.5rem;
-  background-color: var(--dark);
-  box-shadow: 0 0 10px 0 var(--dark);
+  background-color: var(--color-800);
+  box-shadow: 0 0 10px 0 var(--color-800);
 }
 .input-field{
   background-color: transparent;
   border: none;
-  color: var(--white)
+  color: var(--color-50)
 }
 .input-field:focus{
   outline: none;
@@ -32,13 +32,13 @@
 .title-text{
   font-size: 2rem;
   font-weight: 600;
-  color: var(--white);
+  color: var(--color-50);
 }
 .small-text{
   font-size: 1.2rem;
-  color: var(--white);
+  color: var(--color-50);
 }
 .small-text a{
-  color: var(--light);
+  color: var(--accent);
 }
 
