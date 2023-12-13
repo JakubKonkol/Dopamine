@@ -4,7 +4,7 @@
   justify-content: left;
   align-items: center;
   border-radius: 10px;
-  background-color: var(--blue-300);
+  background-color: var(--color-500);
   height: 147px;
   box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
 }
@@ -29,20 +29,20 @@
   font-family: "Proxima soft", sans-serif;
   font-weight: 500;
   font-size: 1.2rem;
-  color: var(--blue-950);
+  color: var(--color-950);
 }
 .subtitle{
   margin-top: 5px;
   font-family: "Proxima soft", sans-serif;
   font-size: 0.8rem;
-  color: var(--blue-900);
+  color: var(--color-900);
 }
 .tagline{
   margin-top: 10px;
   font-family: "Proxima soft", sans-serif;
   font-size: 1rem;
   font-weight: 600;
-  color: var(--blue-800);
+  color: var(--color-800);
 }
 .buttons{
   position: absolute;
@@ -56,17 +56,17 @@
 
 }
 .blue{
-  background-color: var(--blue-600);
-  color: var(--white);
+  background-color: var(--color-700);
+  color: var(--color-50);
   font-weight: 500;
 }
 .blue:hover{
-  background-color: var(--blue-700);
+  background-color: var(--color-700);
   cursor: pointer;
 }
 .text-button{
   background-color: transparent;
-  color: var(--blue-900);
+  color: var(--color-900);
   font-weight: 700;
   border: none;
 }

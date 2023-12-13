@@ -14,11 +14,11 @@ const routes: Routes = [
   { path: "", component: DashboardComponent },
   { path: "profile", component: ProfileComponent },
   { path: "movie/:id", component: MoviePageComponent },
-  {path: "tv/:id", component: SeriesPageComponent},
-  {path: "search/:query", component: SearchPageComponent},
-  { path: "login", component: LoginComponent},
-  { path: "register", component: RegisterComponent},
-  { path: "playlist/:playlist_id", component: PlaylistViewComponent}
+  { path: "tv/:id", component: SeriesPageComponent},
+  { path: "search/:query", component: SearchPageComponent },
+  { path: "login", component: LoginComponent },
+  { path: "register", component: RegisterComponent },
+  { path: "playlist/:playlist_id", component: PlaylistViewComponent }
 ];
 
 @NgModule({

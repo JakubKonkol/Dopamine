@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  background-color: var(--darkest);
+  background-color: var(--color-950);
   border-radius: 15px;
   padding: 0.5rem;
   margin-top:0.5rem;
@@ -10,7 +10,7 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .slider-title{
-  color: var(--white);
+  color: var(--color-50);
   font-size: 1.8rem;
   font-weight: bolder;
   letter-spacing: 0.125rch;
@@ -36,7 +36,7 @@
   max-width: 147px;
   height: 250px;
   background-size: cover;
-  background-color: var(--dark);
+  background-color: var(--color-800);
   margin: 5px 10px;
   cursor: pointer;
   transition: 0.5s ease;
@@ -52,14 +52,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--darkest);
+  background-color: var(--color-950);
   margin-top: 1rem;
   padding: 1rem;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .title-text{
-  color: var(--white);
+  color: var(--color-50);
   font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: 0.125rch;
@@ -79,7 +79,7 @@
   border-radius: 10px;
 }
 .left-btn:hover, .right-btn:hover{
-  background-color: var(--dark);
+  background-color: var(--color-800);
 }
 .controls > a{
   display: flex;

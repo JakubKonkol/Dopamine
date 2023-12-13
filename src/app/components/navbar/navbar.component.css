@@ -3,7 +3,7 @@
   height: 100vh;
   border: 1px solid black;
   position: fixed;
-  background-color: var(--darkest);
+  background-color: var(--color-950);
   z-index: 9999;
 }
 .nav-item{
@@ -27,7 +27,7 @@
   align-items: center;
   height: 5rem;
   justify-content: center;
-  color: var(--white);
+  color: var(--color-50);
 }
 .nav-link svg{
   min-width: 2rem;
@@ -37,7 +37,7 @@ span{
   font-weight: bold;
 }
 .nav-link:hover{
-  background-color: var(--dark);
+  background-color: var(--color-800);
   border-radius: 15px;
   cursor: pointer;
 }

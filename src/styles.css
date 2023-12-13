@@ -1,54 +1,25 @@
 :root{
-  --darkest: #1B2223;
-  --dark: #3A4F50;
-  --light: #0EF6CC;
-  --white: #F4FEFD;
-  --black: #191919;
-  --gray-dark: #777777;
-  --gray-medium: #AAAAAA;
-  --gray-light: #CCCCCC;
-  --blue-dark: #004466;
-  --blue-light: #66CCFF;
-  --blue-medium: #5580aa;
-  --blue-text: #98cced;
-  --green-dark: #006633;
-  --green-light: #99FFCC;
-  --red-dark: #990000;
-  --red-medium: #cd4449;
-  --red-light: #FF6666;
-  --orange-dark: #FF6600;
-  --orange-light: #FFCC99;
-  --darkest-900: #364143;
-  --darkest-800: #3d4c4d;
-  --darkest-700: #44585a;
-  --darkest-600: #4f696b;
-  --darkest-500: #5c7e7e;
-  --darkest-400: #779999;
-  --darkest-300: #a4bcbb;
-  --darkest-200: #c9d8d8;
-  --accent-50: #edfffa;
-  --accent-100: #c2fff3;
-  --accent-200: #86ffe9;
-  --accent-300: #42ffdd;
-  --accent-400: #0ef6cc;
-  --accent-500: #00d9b4;
-  --accent-600: #00af95;
-  --accent-700: #008b78;
-  --accent-800: #016e61;
-  --accent-900: #075a4f;
-  --accent-950: #003833;
-  --blue-50: #f5f7fa;
-  --blue-100: #e9eef5;
-  --blue-200: #cfdae8;
-  --blue-300: #a5bcd4;
-  --blue-400: #7499bc;
-  --blue-500: #5580aa;
-  --blue-600: #3f628a;
-  --blue-700: #345070;
-  --blue-800: #2e445e;
-  --blue-900: #2b3b4f;
-  --blue-950: #1c2635;
-
+  --accent: #0EF6CC;
+  --color-950: #283836;
+  --color-900: #324142;
+  --color-850: #3D4D4E;
+  --color-800: #475E5F;
+  --color-750: #516F70;
+  --color-700: #5B7F80;
+  --color-650: #669091;
+  --color-600: #709F9F;
+  --color-550: #7AAFAF;
+  --color-500: #84BFC0;
+  --color-450: #8ED0D0;
+  --color-400: #98E0E1;
+  --color-350: #A2F0F1;
+  --color-300: #ACF5F5;
+  --color-250: #B7FAFA;
+  --color-200: #C1FFFF;
+  --color-150: #CBFFFF;
+  --color-100: #D5FFFF;
+  --color-50: #DFFFFF;
+  --red-light: #FF5C5C;
 
   --main-font: 'Roboto', sans-serif;
   --secondary-font: 'Montserrat', sans-serif;
@@ -61,15 +32,15 @@
   letter-spacing: 0.05em;
 }
 body{
-  background-color: var(--dark);
+  background-color: var(--color-800);
 }
 .button-big{
   padding: 1rem 1.5rem;
   letter-spacing: 0.15rem;
   text-transform: uppercase;
-  border: 1px solid var(--light);
+  border: 1px solid var(--accent);
   background-color: transparent;
-  color: var(--white);
+  color: var(--color-50);
   box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
   text-align: center;
   border-radius: 4px;
@@ -82,11 +53,11 @@ body{
   transition: 0.3s ease-in-out;
 }
 .button-big:hover svg{
-  fill: var(--darkest);
+  fill: var(--color-950);
 }
 .button-big:hover{
-  background-color: var(--light);
-  color: var(--darkest);
+  background-color: var(--accent);
+  color: var(--color-950);
   cursor: pointer;
 }
 .red{
@@ -94,7 +65,7 @@ body{
 }
 .red:hover {
   background-color: var(--red-light);
-  color: var(--darkest);
+  color: var(--color-950);
   cursor: pointer;
 }
 .red svg{
@@ -111,12 +82,12 @@ body{
   box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
 }
 .primary-red{
-  background-color: var(--red-medium);
-  color: var(--white);
+  background-color: var(--red-light);
+  color: var(--color-50);
 }
 .primary-red:hover{
   background-color: var(--red-light);
-  color: var(--darkest);
+  color: var(--color-950);
   cursor: pointer;
 }
 .button-secondary{
