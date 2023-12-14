@@ -26,7 +26,7 @@ discover new films, and track your viewing habits. With Dopamine, you can easily
 1. Install Node.js from [here](https://nodejs.org/en/download/).
 2. `git clone https://github.com/JakubKonkol/Dopamine.git || cd Dopamine `
 3. `npm install`
-4. create `src/app/environments/environment.ts` file with the following content:
+4. create `src/environments/environment.development.ts` file with the following content:
 ```typescript
 export const environment = {
   TMDB_API_KEY: 'tmdb api key ',
