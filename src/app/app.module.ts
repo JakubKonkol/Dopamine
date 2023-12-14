@@ -23,7 +23,6 @@ import { NewNavComponent } from './components/new-nav/new-nav.component';
 import { FeaturedComponent } from './components/featured/featured.component';
 import {TVSeriesService} from "./service/TVSeriesService";
 import { SeriesPageComponent } from './components/series-page/series-page.component';
-import {environment} from "./environments/environment";
 import {AuthService} from "./service/AuthService";
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -33,6 +32,11 @@ import { ProfileDropdownComponent } from './components/profile-dropdown/profile-
 import { PlaylistModalComponent } from './components/playlist-modal/playlist-modal.component';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { PlaylistViewComponent } from './components/playlist-view/playlist-view.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule} from "@angular/material/icon";
+import {MatButtonModule} from "@angular/material/button";
+import {MatInputModule} from "@angular/material/input";
+import {environment} from "../environments/environment";
 
 @NgModule({
   declarations: [
@@ -57,16 +61,20 @@ import { PlaylistViewComponent } from './components/playlist-view/playlist-view.
     MovieCardComponent,
     PlaylistViewComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    NgOptimizedImage,
-    HotToastModule.forRoot(),
-    ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        NgOptimizedImage,
+        HotToastModule.forRoot(),
+        ReactiveFormsModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFirestoreModule,
+        BrowserAnimationsModule,
+        MatIconModule,
+        MatButtonModule,
+        MatInputModule
+    ],
   providers: [
       MovieService,
       UserService,
