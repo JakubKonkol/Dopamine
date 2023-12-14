@@ -36,6 +36,7 @@ import { PlaylistViewComponent } from './components/playlist-view/playlist-view.
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -60,19 +61,20 @@ import {MatButtonModule} from "@angular/material/button";
     MovieCardComponent,
     PlaylistViewComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    NgOptimizedImage,
-    HotToastModule.forRoot(),
-    ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule,
-    BrowserAnimationsModule,
-    MatIconModule,
-    MatButtonModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        NgOptimizedImage,
+        HotToastModule.forRoot(),
+        ReactiveFormsModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFirestoreModule,
+        BrowserAnimationsModule,
+        MatIconModule,
+        MatButtonModule,
+        MatInputModule
+    ],
   providers: [
       MovieService,
       UserService,
