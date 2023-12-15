@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MovieService } from "./service/MovieService";
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { MovieViewComponent } from './components/movie-view/movie-view.component';
@@ -33,15 +32,16 @@ import { PlaylistModalComponent } from './components/playlist-modal/playlist-mod
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { PlaylistViewComponent } from './components/playlist-view/playlist-view.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
 import {environment} from "../environments/environment";
+import {MatIconModule} from "@angular/material/icon";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatListModule} from "@angular/material/list";
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     DashboardComponent,
     ProfileComponent,
     MovieViewComponent,
@@ -61,20 +61,22 @@ import {environment} from "../environments/environment";
     MovieCardComponent,
     PlaylistViewComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        NgOptimizedImage,
-        HotToastModule.forRoot(),
-        ReactiveFormsModule,
-        AngularFireModule.initializeApp(environment.firebaseConfig),
-        AngularFirestoreModule,
-        BrowserAnimationsModule,
-        MatIconModule,
-        MatButtonModule,
-        MatInputModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    NgOptimizedImage,
+    HotToastModule.forRoot(),
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatIconModule,
+    MatMenuModule,
+    MatListModule
+  ],
   providers: [
       MovieService,
       UserService,

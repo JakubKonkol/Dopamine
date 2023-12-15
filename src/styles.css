@@ -26,6 +26,9 @@
   --other-font: 'Poppins', sans-serif;
   --title-text-shadow: 0 0 50px hsla(0, 0%, 0%, 0.4);
 }
+.material-icons{
+  font-family: 'Material Icons', serif !important;
+}
 *{
   margin: 0;
   font-family: var(--other-font);

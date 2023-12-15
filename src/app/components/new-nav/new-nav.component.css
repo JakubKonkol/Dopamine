@@ -14,12 +14,35 @@
 }
 
 .welcome-text {
-    font-size: 2em;
-    font-weight: bold;
-    color: white;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 1rem;
+}
+.title-text{
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--color-50);
+  margin-right: 1rem;
+}
+.links{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+.links >p{
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  color: var(--color-600);
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
+  transition: 0.2s ease-in-out;
+}
+.links >p:hover{
+  color: var(--color-50);
+  cursor: pointer;
 }
 .welcome-text p{
   text-shadow: var(--title-text-shadow);
@@ -33,86 +56,11 @@
 .items > * {
     margin-inline: 15px;
 }
-
-.navbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #282f31;
-    padding: 10px;
-    z-index: 9999;
-}
-
-.navbar-item, .user-stats {
-    display: flex;
-    align-items: center;
-    color: white;
-    text-decoration: none;
-    font-size: 1em;
-    font-weight: bold;
-    margin: 0 15px;
-    padding: 10px;
-    border-radius: 5px;
-    transition: background-color 0.2s ease-in-out;
-}
-.navbar-item, .user-stats:hover {
-    cursor: pointer;
-}
-.navbar-item svg, .user-stats svg{
-    margin-right: 10px;
-}
-
-
-.navbar-item:hover {
-    background-color: var(--color-800);
-    cursor: pointer;
-    color:black;
-}
 @media only screen and (max-width:768px) {
-    .navbar > .navbar-item > p{
-      display: none;
-    }
-    .navbar{
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      justify-content: space-evenly;
-    }
-    .container{
-
-    }
     .welcome-text > p{
       display: none;
     }
-  .navbar-item svg, .user-stats svg{
-    margin-right: 0;
-  }
 }
-.vroom{
-  transition: ease-in-out;
-  animation-name: vrooom;
-  animation-duration: 2s;
-}
-@keyframes vrooom {
-  0%{
-    transform: rotate(0deg);
-  }
-  100%{
-    transform: rotate(360deg);
-  }
-}
-.item-btn{
-  padding: 0.5rem 0.5rem;
-  color: var(--color-50);
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  width: 100%;
-  margin-inline: auto;
-  font-size: 0.8rem;
-  border: 1px solid #191919;
-  border-radius: 5px;
-  background-color: var(--color-800);
+img:hover{
+  cursor: pointer;
 }
