@@ -38,6 +38,9 @@ import {environment} from "../environments/environment";
 import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatListModule} from "@angular/material/list";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatRadioModule} from "@angular/material/radio";
+import {SearchService} from "./service/SearchService";
 
 @NgModule({
   declarations: [
@@ -75,14 +78,17 @@ import {MatListModule} from "@angular/material/list";
     MatInputModule,
     MatIconModule,
     MatMenuModule,
-    MatListModule
+    MatListModule,
+    MatProgressSpinnerModule,
+    MatRadioModule
   ],
   providers: [
       MovieService,
       UserService,
       PersonService,
       TVSeriesService,
-      AuthService
+      AuthService,
+      SearchService
   ],
   bootstrap: [AppComponent]
 })

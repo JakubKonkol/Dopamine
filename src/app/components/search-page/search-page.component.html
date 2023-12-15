@@ -1,11 +1,30 @@
 <div class="container">
   <div class="filters">
-
+    <mat-form-field>
+      <mat-label>Search</mat-label>
+      <input matInput placeholder="Ex. Fight Club">
+    </mat-form-field>
+    <div class="title">Type</div>
+    <mat-radio-group class="radio-group">
+      <mat-radio-button class="radio-button" value="all"><b class="radio-button">All</b></mat-radio-button>
+      <mat-radio-button class="radio-button" value="movie"><b class="radio-button">Movies</b></mat-radio-button>
+      <mat-radio-button class="radio-button" value="series"><b class="radio-button">Series</b></mat-radio-button>
+      <mat-radio-button class="radio-button" value="people"><b class="radio-button">People</b></mat-radio-button>
+    </mat-radio-group>
+    <button mat-raised-button color="primary" (click)="searchMulti('es')"> test test es es </button>
   </div>
-  <div class="results">
-    <app-movie-view
-      *ngFor="let movie of foundMovies"
-      [movie]="movie"
-      />
+  <div class="centered-results" *ngIf="!shouldRenderData">
+    <mat-spinner/>
+  </div>
+  <div class="results" *ngIf="shouldRenderData">
+    <p class="text"> Total results: {{movies.length+tvSeries.length+persons.length}}</p>
+    <p *ngFor="let movie of movies">{{movie.title}}</p>
+    <p *ngFor="let series of tvSeries">{{series.name}}</p>
+    <p *ngFor="let person of persons">{{person.name}}</p>
+<!--    <app-movie-view-->
+<!--      *ngFor="let movie of foundMovies"-->
+<!--      [movie]="movie"-->
+<!--      (click)="gotoMovie(movie)"-->
+<!--      />-->
   </div>
 </div>

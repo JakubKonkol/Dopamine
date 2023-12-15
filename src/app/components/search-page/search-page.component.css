@@ -3,11 +3,30 @@
 }
 .filters{
   flex-basis: 20%;
-  border: 1px solid red;
+  padding: 1rem;
+  background-color: var(--color-900);
+  height: 100dvh;
+  border-radius: 4px;
 }
 .results{
+  padding: 1rem;
   flex-basis: 80%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
 }
-
+.centered-results{
+  flex-basis: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.radio-group{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--color-50);
+}
+.radio-button{
+  color: var(--color-50);
+}
