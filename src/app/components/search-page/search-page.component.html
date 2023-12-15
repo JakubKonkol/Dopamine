@@ -1,9 +1,11 @@
-<div *ngIf="shouldRenderData">
-  <app-dashboard-section
-    title="Here's what we have found for phrase {{query}}"
-    [iterableMovies]="foundMovies"
-    size="medium"
+<div class="container">
+  <div class="filters">
 
-    />
-
+  </div>
+  <div class="results">
+    <app-movie-view
+      *ngFor="let movie of foundMovies"
+      [movie]="movie"
+      />
+  </div>
 </div>

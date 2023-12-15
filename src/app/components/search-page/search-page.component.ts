@@ -1,9 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 import {MovieService} from "../../service/MovieService";
 import {Movie} from "../../model/Movie";
-import {HotToastService} from "@ngneat/hot-toast";
-import {toastConfig} from "../../tools/toastConfig";
 import {Subscription} from "rxjs";
 
 @Component({
@@ -15,8 +13,6 @@ export class SearchPageComponent implements OnInit, OnDestroy{
 
   constructor(private route: ActivatedRoute,
               private movieService: MovieService,
-              private toast: HotToastService,
-              private router: Router,
   ){ }
   foundMovies: Movie[] = []
   shouldRenderData: boolean = true;
@@ -25,14 +21,19 @@ export class SearchPageComponent implements OnInit, OnDestroy{
   async ngOnInit(): Promise<void> {
     this.routeSub = this.route.params.subscribe(async params => {
       this.query = params['query'];
-      this.foundMovies = await this.movieService.searchMovie(this.query);
+      this.movieService.searchMovie(this.query).then(
+        (movies) => {
+          this.shouldRenderData = false;
+          this.foundMovies = movies;
+        }).catch((error) => {
+        console.error(error);
+      }).finally(() => {
+        this.shouldRenderData = true;
+      })
     })
 
   }
   ngOnDestroy(): void {
     this.routeSub.unsubscribe(); //memory efficient XD
   }
-    gotoMovie(id: number) {
-        this.router.navigate(['/movie', id]).then();
-    }
 }

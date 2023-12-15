@@ -9,6 +9,7 @@
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
   color: var(--color-50);
+  max-width: 200px;
 }
 
 .movie-image {
