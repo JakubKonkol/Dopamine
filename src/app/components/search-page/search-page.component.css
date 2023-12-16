@@ -37,9 +37,10 @@
 }
 .results-info{
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   height: 1rem;
   padding: 1rem;
+  gap:2rem;
 }
 .single-info{
   display: flex;

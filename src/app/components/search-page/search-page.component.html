@@ -12,11 +12,11 @@
     </mat-radio-group>
     <button mat-raised-button color="accent" (click)="searchMulti(query)">Search</button>
   </div>
-  <div class="centered-results" *ngIf="!shouldRenderData">
-    <mat-spinner/>
-  </div>
   <div class="right">
-    <div class="results-info">
+    <div class="centered-results" *ngIf="!shouldRenderData">
+      <mat-spinner/>
+    </div>
+    <div class="results-info" *ngIf="results.length>0">
       <div class="single-info"> <mat-icon>movie</mat-icon> {{movies.length}}</div>
       <div class="single-info"> <mat-icon>tv</mat-icon> {{tvSeries.length}}</div>
       <div class="single-info"> <mat-icon>group</mat-icon> {{persons.length}}</div>
