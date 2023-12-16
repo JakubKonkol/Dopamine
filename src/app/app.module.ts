@@ -41,6 +41,7 @@ import {MatListModule} from "@angular/material/list";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatRadioModule} from "@angular/material/radio";
 import {SearchService} from "./service/SearchService";
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import {SearchService} from "./service/SearchService";
     MatMenuModule,
     MatListModule,
     MatProgressSpinnerModule,
-    MatRadioModule
+    MatRadioModule,
+    MatPaginatorModule
   ],
   providers: [
       MovieService,

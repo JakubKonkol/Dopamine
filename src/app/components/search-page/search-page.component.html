@@ -2,29 +2,30 @@
   <div class="filters">
     <mat-form-field>
       <mat-label>Search</mat-label>
-      <input matInput placeholder="Ex. Fight Club">
+      <input matInput placeholder="Ex. Fight Club" [(ngModel)]="query">
     </mat-form-field>
-    <div class="title">Type</div>
-    <mat-radio-group class="radio-group">
+    <mat-radio-group class="radio-group" [(ngModel)]="selectedType">
       <mat-radio-button class="radio-button" value="all"><b class="radio-button">All</b></mat-radio-button>
       <mat-radio-button class="radio-button" value="movie"><b class="radio-button">Movies</b></mat-radio-button>
       <mat-radio-button class="radio-button" value="series"><b class="radio-button">Series</b></mat-radio-button>
       <mat-radio-button class="radio-button" value="people"><b class="radio-button">People</b></mat-radio-button>
     </mat-radio-group>
-    <button mat-raised-button color="primary" (click)="searchMulti('es')"> test test es es </button>
+    <button mat-raised-button color="accent" (click)="searchMulti(query)">Search</button>
   </div>
   <div class="centered-results" *ngIf="!shouldRenderData">
     <mat-spinner/>
   </div>
-  <div class="results" *ngIf="shouldRenderData">
-    <p class="text"> Total results: {{movies.length+tvSeries.length+persons.length}}</p>
-    <p *ngFor="let movie of movies">{{movie.title}}</p>
-    <p *ngFor="let series of tvSeries">{{series.name}}</p>
-    <p *ngFor="let person of persons">{{person.name}}</p>
-<!--    <app-movie-view-->
-<!--      *ngFor="let movie of foundMovies"-->
-<!--      [movie]="movie"-->
-<!--      (click)="gotoMovie(movie)"-->
-<!--      />-->
+  <div class="right">
+    <div class="results-info">
+      <div class="single-info"> <mat-icon>movie</mat-icon> {{movies.length}}</div>
+      <div class="single-info"> <mat-icon>tv</mat-icon> {{tvSeries.length}}</div>
+      <div class="single-info"> <mat-icon>group</mat-icon> {{persons.length}}</div>
+    </div>
+    <div class="results" *ngIf="shouldRenderData">
+      <div class="card-view" *ngFor="let item of results" (click)="goto(item)">
+        <img src="{{getPosterURL(item.poster_path || item.profile_path)}}" class="card-image">
+        <p class="card-title">{{item.title || item.name}}</p>
+      </div>
+    </div>
   </div>
 </div>

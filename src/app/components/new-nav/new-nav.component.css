@@ -12,7 +12,14 @@
     background-color: var(--color-950);
     padding: 10px;
 }
-
+.controls{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 8px;
+  outline: 1px solid var(--color-600);
+  padding: 1rem;
+}
 .welcome-text {
     display: flex;
     align-items: center;

@@ -5,10 +5,12 @@
       <p class="title-text">Dopamine</p>
     </div>
   <div class="controls">
+    <div class="controls-item">
+      <button mat-mini-fab color="accent" (click)="goto('search')"><mat-icon>search</mat-icon></button>
+    </div>
   </div>
     <div class="items">
       <div class="links">
-        <app-search-bar></app-search-bar>
         <button mat-mini-fab color="accent" [matMenuTriggerFor]="menu"> <mat-icon>person</mat-icon></button>
         <mat-menu #menu="matMenu">
           <button mat-menu-item (click)="goto('profile')"><mat-icon>person</mat-icon><span>Profile</span></button>

@@ -5,14 +5,17 @@ import tmdb from "../api/tmdb";
 })
 export class SearchService {
 
-  async searchByQuery(query: string): Promise<any>{
+  async searchByQuery(query: string, page?: number): Promise<any>{
     try{
+      if(page == undefined){
+        page = 1;
+      }
       const response = await tmdb.get('/search/multi', {
         params: {
           query: query,
           include_adult: false,
           language: 'en-US',
-          page: 1,
+          page: page,
         }
       })
       if (response.status == 200) {
