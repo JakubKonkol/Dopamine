@@ -5,7 +5,7 @@
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  background-color: var(--blue-300);
+  background-color: var(--color-700);
   border-radius: 10px;
   box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
 }
@@ -14,7 +14,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 1rem;
-  background-color: var(--blue-400);
+  background-color: var(--color-900);
   border-radius: 4px;
   height: 10rem;
   box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
@@ -24,7 +24,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: var(--blue-950)
+  color: var(--color-100)
 }
 .playlist-info{
   display: flex;
@@ -43,7 +43,7 @@
   justify-content: center;
   gap: 8px;
   padding: 0.5rem;
-  background-color: var(--blue-900);
+  background-color: var(--color-900);
   border-radius: 15px;
 }
 .chip > p{
@@ -51,10 +51,10 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--blue-400);
+  color: var(--color-400);
 }
 .chip > svg{
-  fill: var(--blue-400);
+  fill: var(--color-400);
 }
 .playlist-delete-btn{
   background-color: transparent;
@@ -65,5 +65,53 @@
   transform: scale(1.1);
 }
 .playlist-delete-btn > svg{
-  fill: var(--blue-900)
+  fill: var(--color-900)
+}
+.items{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.section-title{
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-100);
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+.single-item-card{
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.1rem;
+  background-color: var(--color-900);
+  border-radius: 4px;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+  gap: 0.1rem;
+}
+.item-title{
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-align: center;
+  color: var(--color-100);
+  margin-bottom: 0.3rem;
+}
+.action{
+  font-size: 0.9rem;
+  color: var(--color-500);
+  margin-bottom: 0.1rem;
+  cursor: pointer;
+}
+.action:hover{
+  color: var(--color-100);
+}
+.item-img{
+  min-width: 150px;
+  min-height: 225px;
+  border-radius: 4px;
 }
