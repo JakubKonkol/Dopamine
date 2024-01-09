@@ -65,6 +65,7 @@ body{
 }
 .red{
   border: 1px solid var(--red-light);
+  color: var(--red-light);
 }
 .red:hover {
   background-color: var(--red-light);
@@ -73,6 +74,9 @@ body{
 }
 .red svg{
   fill: var(--red-light);
+}
+.red:hover svg{
+  fill: var(--color-950);
 }
 .button-primary{
   border: none;

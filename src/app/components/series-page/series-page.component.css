@@ -199,3 +199,12 @@ p{
     justify-content: center;
   }
 }
+svg{
+  fill: var(--accent);
+}
+.red svg{
+  fill: var(--red-light);
+}
+.red:hover svg{
+  fill: var(--color-950);
+}
