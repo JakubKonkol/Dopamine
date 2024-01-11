@@ -22,19 +22,21 @@
     <p class="section-title">Movies: </p>
     <div class="items">
       <div class="single-item-card" *ngFor="let movie of movies">
-        <img src="{{movie.poster_path}}" width="150px" height="225px" alt="" class="item-img">
-        <p class="item-title">{{movie.title}}</p>
-        <p class="action"> Details</p>
-        <p class="action" (click)="deleteMovieFromPlaylist(movie)"> Remove from playlist</p>
+        <img src="{{movie.poster_path}}" alt="" class="item-img">
+        <div class="item-actions">
+          <button mat-mini-fab color="primary" (click)="gotoMovie(movie)"> <mat-icon>info</mat-icon> </button>
+          <button mat-mini-fab color="primary" (click)="deleteMovieFromPlaylist(movie)"> <mat-icon>delete</mat-icon> </button>
+        </div>
       </div>
     </div>
     <p class="section-title">Series: </p>
     <div class="items">
       <div class="single-item-card" *ngFor="let tvSerie of tvSeries">
-        <img src="{{tvSerie.poster_path}}" width="150px" height="225px" alt="" class="item-img">
-        <p class="item-title">{{tvSerie.name}}</p>
-        <p class="action"> Details</p>
-        <p class="action" (click)="deleteSeriesFromPlaylist(tvSerie)"> Remove from playlist</p>
+        <img src="{{getTVSeriesPosterImage(tvSerie.poster_path)}}" alt="" class="item-img">
+        <div class="item-actions">
+          <button mat-mini-fab color="primary" (click)="gotoSeries(tvSerie)"> <mat-icon>info</mat-icon> </button>
+          <button mat-mini-fab color="primary" (click)="deleteSeriesFromPlaylist(tvSerie)"> <mat-icon>delete</mat-icon> </button>
+        </div>
       </div>
 
     </div>

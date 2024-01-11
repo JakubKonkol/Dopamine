@@ -107,4 +107,13 @@ export class PlaylistViewComponent implements OnInit {
       }
     })
   }
+  getTVSeriesPosterImage(posterPath: string): string{
+    return 'https://image.tmdb.org/t/p/w500' + posterPath;
+  }
+  gotoMovie(movie: Movie) {
+    this.router.navigate(['movie', movie.id]).then(r => console.log(r));
+  }
+  gotoSeries(series: TVSeries) {
+    this.router.navigate(['series', series.id]).then(r => console.log(r));
+  }
 }
